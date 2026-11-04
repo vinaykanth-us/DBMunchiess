@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | DB Mart Munchies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<div class="page-shell">
+
+    <header class="navbar container">
+        <a href="index.html" class="logo">DB<span> Munchies</span></a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="track-order.html">Track Order</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="menu-cart-btn" id="cartButton">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span id="cartCount">0</span>
+            </button>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- MENU HERO -->
+        <section class="menu-hero container">
+            <div class="menu-hero-content reveal">
+                <span class="eyebrow">FRESH • HALAL • DELICIOUS</span>
+                <h1>Explore Our <span>Menu</span></h1>
+                <p>
+                    From delicious gyros to freshly prepared platters,
+                    discover your next favourite meal.
+                </p>
+                <div class="menu-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Our Menu</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU SECTION -->
+        <section class="menu-section container">
+
+            <div class="menu-heading">
+                <div>
+                    <span class="eyebrow">MADE FRESH FOR YOU</span>
+                    <h2 class="section-title">Discover Our Food</h2>
+                    <p>Find something delicious for every craving.</p>
+                </div>
+
+                <div class="menu-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input
+                        type="search"
+                        id="menuSearch"
+                        placeholder="Search dishes..."
+                    >
+                    <button id="clearSearch" aria-label="Clear search">&times;</button>
+                </div>
+            </div>
+
+            <!-- CATEGORY FILTERS -->
+            <div class="category-filters" id="categoryFilters"></div>
+
+            <!-- RESULT COUNT -->
+            <div class="menu-result-info">
+                <span id="resultCount">Showing 38 items</span>
+                <span>Freshly prepared with care</span>
+            </div>
+
+            <!-- FOOD CARDS -->
+            <div class="menu-grid" id="menuGrid"></div>
+
+            <div class="no-results" id="noResults">
+                <i class="fa-solid fa-utensils"></i>
+                <h3>No dishes found</h3>
+                <p>Try searching for something else.</p>
+            </div>
+
+        </section>
+
+        <!-- CART PANEL -->
+        <div class="cart-overlay" id="cartOverlay"></div>
+
+        <aside class="cart-panel" id="cartPanel">
+            <div class="cart-header">
+                <div>
+                    <span class="eyebrow">YOUR SELECTION</span>
+                    <h2>Your Cart</h2>
+                </div>
+                <button id="closeCart" aria-label="Close cart">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <strong id="cartTotal">$0.00</strong>
+                </div>
+
+                <button class="primary-btn checkout-btn" id="checkoutButton">
+                    Continue to Order
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer class="footer container" id="contact">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">DB<span> Munchies</span></a>
+            <p>Freshly grilled. Deliciously served.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="track-order.html">Track Order</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contact</h4>
+            <p>894 Maple Ave</p>
+            <p>Hartford, CT 06114</p>
+            <p>(860) 956-0415</p>
+        </div>
+
+        <div class="copyright">
+            © 2026 DB Mart Munchies. All rights reserved.
+        </div>
+    </footer>
+
+</div>
+
+<script src="menu.js"></script>
+</body>
+</html>

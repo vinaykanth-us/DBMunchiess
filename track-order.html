@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Your Order | DB Mart Munchies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="track-order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="page-shell">
+
+    <!-- NAVBAR -->
+    <header class="navbar container">
+
+        <a href="index.html" class="logo">
+            DB<span> Munchies</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="track-order.html" class="active">Track Order</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="menu.html" class="nav-order-btn">
+                Order Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- TRACK HERO -->
+        <section class="tracking-hero container">
+
+            <div class="tracking-hero-content">
+                <span class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    ORDER TRACKING
+                </span>
+
+                <h1>
+                    Your Food Is
+                    <br>
+                    <span>On Its Way!</span>
+                </h1>
+
+                <p>
+                    Hungry for an update? Enter your order number
+                    and find out what's happening with your meal.
+                </p>
+
+            </div>
+
+            <div class="tracking-hero-icon">
+                <div class="tracking-icon-circle">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </div>
+                <span class="tracking-star star-one">✦</span>
+                <span class="tracking-star star-two">✿</span>
+            </div>
+
+        </section>
+
+
+        <!-- TRACKING FORM -->
+        <section class="tracking-section container">
+
+            <div class="tracking-search-card">
+
+                <div class="tracking-card-heading">
+                    <span class="tracking-small-icon">
+                        <i class="fa-solid fa-box"></i>
+                    </span>
+
+                    <div>
+                        <h2>Track Your Order</h2>
+                        <p>Enter the order number from your confirmation.</p>
+                    </div>
+                </div>
+
+
+                <form id="trackingForm" class="tracking-form">
+
+                    <div class="tracking-input-wrap">
+                        <i class="fa-solid fa-hashtag"></i>
+
+                        <input
+                            type="text"
+                            id="orderNumber"
+                            placeholder="Enter order number (e.g. 2001)"
+                            required
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <button type="submit" class="tracking-btn">
+                        Track Order
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </form>
+
+                <p class="tracking-hint">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Try demo order numbers: 2001, 2002 or 2003.
+                </p>
+
+            </div>
+
+
+            <!-- ERROR MESSAGE -->
+            <div class="tracking-error" id="trackingError">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div>
+                    <strong>Order not found</strong>
+                    <p>Please check your order number and try again.</p>
+                </div>
+            </div>
+
+
+            <!-- RESULT -->
+            <div class="tracking-result" id="trackingResult">
+
+                <div class="result-header">
+
+                    <div>
+                        <span class="eyebrow">ORDER DETAILS</span>
+                        <h2>Order <span id="displayOrderId"></span></h2>
+                    </div>
+
+                    <span class="status-badge" id="statusBadge">
+                        Preparing
+                    </span>
+
+                </div>
+
+
+                <div class="result-details">
+
+                    <div class="detail-box">
+                        <span>Customer</span>
+                        <strong id="displayCustomer"></strong>
+                    </div>
+
+                    <div class="detail-box">
+                        <span>Ordered Item</span>
+                        <strong id="displayItem"></strong>
+                    </div>
+
+                    <div class="detail-box">
+                        <span>Estimated Time</span>
+                        <strong id="displayEta"></strong>
+                    </div>
+
+                </div>
+
+
+                <!-- ORDER TIMELINE -->
+                <div class="order-timeline-section">
+
+                    <h3>Order Progress</h3>
+
+                    <div class="order-timeline" id="orderTimeline">
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <div class="timeline-text">
+                                <strong>Order Received</strong>
+                                <span>We've received your order.</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-fire-burner"></i>
+                            </div>
+                            <div class="timeline-text">
+                                <strong>Preparing</strong>
+                                <span>Your food is being prepared.</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-motorcycle"></i>
+                            </div>
+                            <div class="timeline-text">
+                                <strong>Out for Delivery</strong>
+                                <span>Your order is on its way.</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-house"></i>
+                            </div>
+                            <div class="timeline-text">
+                                <strong>Delivered</strong>
+                                <span>Enjoy your delicious meal!</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tracking-footer-message" id="trackingFooterMessage">
+                    Thank you for choosing DB Mart Munchies!
+                </div>
+
+                <p class="demo-notice" id="demoNotice"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- HELP SECTION -->
+        <section class="tracking-help container">
+
+            <div>
+                <span class="eyebrow">NEED ASSISTANCE?</span>
+                <h2>Something Not Right?</h2>
+                <p>We're here to help with your order.</p>
+            </div>
+
+            <a href="help.html" class="primary-btn">
+                Get Help
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer container" id="contact">
+
+        <div class="footer-brand">
+            <a href="index.html" class="logo">DB<span> Munchies</span></a>
+            <p>Freshly grilled. Deliciously served.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="track-order.html">Track Order</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contact</h4>
+            <p>894 Maple Ave</p>
+            <p>Hartford, CT 06114</p>
+            <p>(860) 956-0415</p>
+        </div>
+
+        <div class="copyright">
+            © 2026 DB Mart Munchies. All rights reserved.
+        </div>
+
+    </footer>
+
+</div>
+
+<script src="track-order.js"></script>
+
+</body>
+</html>
