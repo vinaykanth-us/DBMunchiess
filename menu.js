@@ -194,11 +194,13 @@ function renderMenu() {
                     </span>
 
                     <button
-                        class="menu-add-btn"
-                        data-id="${item.id}"
-                        aria-label="Add ${item.name} to cart">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+  class="menu-add-btn"
+  data-id="${item.id}"
+  aria-label="Add ${item.name} to cart"
+  ${item.available === false ? 'disabled' : ''}>
+  ${item.available === false ? 'Unavailable' : '<i class="fa-solid fa-plus"></i>'}
+</button>
+
 
                 </div>
 
