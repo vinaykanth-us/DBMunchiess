@@ -244,6 +244,15 @@ img[data-placeholder="true"] { filter: saturate(.95); }
   padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
   background: var(--gold-pale); border: 1px solid #eadf9a;
 }
+.snack-list { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.snack-list li {
+  display: block; padding: 0 0 14px 0; border-radius: 16px; overflow: hidden;
+  font-size: 14px; font-weight: 400; line-height: 1.5;
+  background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+}
+.snack-list li img { width: 100%; height: 170px; object-fit: cover; display: block; margin-bottom: 10px; }
+.snack-list li strong, .snack-list li span { display: block; padding: 0 14px; }
+.snack-list li strong { font-size: 15px; }
 .deals-source { margin-top: 16px; font-size: 12.5px; color: var(--ink-soft); text-align: center; }
 
 /* ---------- Contact banner: AI button + phone kept distinct ---------- */
@@ -321,3 +330,13 @@ img[data-placeholder="true"] { filter: saturate(.95); }
   .footer { grid-template-columns: 1fr; }
   .hero-actions .primary-btn, .hero-actions .ai-call-btn { width: 100%; justify-content: center; }
 }
+
+/* ---------- American-style restaurant look: bold, clean, photo-led ---------- */
+.hero-visual .hero-image { width: 100%; height: 420px; object-fit: cover; border-radius: 24px; box-shadow: 0 18px 40px rgba(0,0,0,.22); }
+.snack-list li { transition: transform .25s ease, box-shadow .25s ease; }
+.snack-list li:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.16); }
+.deals-snacks h3, .deals h2, .section-title { letter-spacing: .04em; text-transform: uppercase; }
+.deal-card { overflow: hidden; }
+.deal-card .deal-price { font-size: 22px; font-weight: 800; }
+.photo-note { font-size: 12.5px; color: var(--ink-soft); text-align: center; margin-top: 12px; }
+@media (max-width: 640px) { .hero-visual .hero-image { height: 280px; } }
