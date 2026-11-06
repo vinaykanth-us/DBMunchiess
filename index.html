@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SuShi — Japanese Food Experience</title>
+    <title>DB Mart Munchies — Halal Chicken &amp; Grill | Hartford, CT</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="premium.css">
 </head>
 
 <body>
@@ -38,7 +39,9 @@
 
     <div class="nav-actions">
 
-        <a href="menu.html" class="nav-order-btn">
+        <button type="button" class="ai-call-btn" onclick="callRestaurant()"><span class="live-dot" aria-hidden="true"></span>Call AI Assistant to Order</button>
+
+            <a href="menu.html" class="nav-order-btn">
             Order Now
             <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -79,10 +82,18 @@
     to satisfy your cravings.
 </p>
 
-                <a href="#popular" class="primary-btn">
-                    Order Now
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <div class="hero-actions">
+                    <a href="menu.html" class="primary-btn">
+                        Order Now
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button type="button" class="ai-call-btn" onclick="callRestaurant()"><span class="live-dot" aria-hidden="true"></span>Call AI Assistant to Order</button>
+                </div>
+                <ul class="trust-chips" aria-label="Trust signals">
+                    <li>✅ 100% Halal</li>
+                    <li><span class="stars">★★★★</span> 4.0 · 76 reviews</li>
+                    <li>🕐 Fri &amp; Sat open 24 hours</li>
+                </ul>
 
                 <div class="hero-stamp">
                     <span>100%</span>
@@ -97,7 +108,7 @@
 
                 <img
                     src="assets/images/img1.jpeg"
-                    alt="Fresh sushi platter"
+                    alt="Grilled chicken at DB Mart Munchies"
                     class="hero-image "
                 >
 
@@ -108,6 +119,10 @@
                 <div class="hero-caption">
                     <span>Freshly prepared</span>
                     <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="hero-glass-card">
+                    <strong><span class="open-now">● Open now</span> — see hours below</strong>
+                    Fri &amp; Sat open 24 hours. Call the AI assistant to order in one tap.
                 </div>
 
             </div>
@@ -120,6 +135,30 @@
         </section>
 
 
+
+
+<!-- CUISINES & HOURS — real restaurant content -->
+<section class="info-band" aria-label="Cuisines and opening hours">
+  <div class="info-card">
+    <span class="eyebrow">OUR CUISINES</span>
+    <h2>Middle Eastern, Egyptian &amp; American fusion</h2>
+    <p>Halal chicken and grills, plus Egyptian and American favourites — all under one roof in Hartford.</p>
+    <div class="cuisine-pills">
+      <span>Middle Eastern</span><span>Egyptian</span><span>American fusion</span><span>100% Halal</span>
+    </div>
+  </div>
+  <div class="info-card">
+    <span class="eyebrow">OPENING HOURS</span>
+    <h2>Open late, every day</h2>
+    <ul class="hours-list">
+      <li><span>Mon – Wed</span><strong>5 AM – 2 AM</strong></li>
+      <li><span>Thursday</span><strong>5 AM – midnight</strong></li>
+      <li><span>Friday &amp; Saturday</span><strong class="open-24">Open 24 hours</strong></li>
+      <li><span>Sunday</span><strong>5 AM – midnight</strong></li>
+    </ul>
+  </div>
+</section>
+<div class="section-divider" aria-hidden="true"><span>✦</span></div>
 
 <!-- FIRST ORDER OFFER -->
 <section class="offers section container" id="offers">
@@ -264,6 +303,74 @@
 </section>
 
 
+
+<!-- EVERYDAY DEALS — featured section, from the restaurant's Instagram posters.
+     Separate from the 38-item demo menu: deal prices are NOT menu prices.
+     Delivery via Uber Eats, DoorDash and Grubhub. -->
+<section class="deals-section container" id="everyday-deals" aria-label="Everyday deals">
+  <div class="section-heading reveal">
+    <span class="eyebrow">EVERYDAY DEALS</span>
+    <h2 class="section-title">One deal every day</h2>
+    <p>Real deals from the restaurant's Instagram posters. Delivery via Uber Eats, DoorDash and Grubhub.</p>
+  </div>
+  <div class="deals-grid">
+    <article class="deal-card" data-day="0">
+      <span class="deal-day">Sunday</span>
+      <h3>6&quot; Philly Cheese Steak</h3>
+      <p class="deal-note">A Sunday classic.</p>
+      <p class="deal-price">$8.49</p>
+    </article>
+    <article class="deal-card" data-day="1">
+      <span class="deal-day">Monday</span>
+      <h3>Chicken Over Rice</h3>
+      <p class="deal-note">Start the week with a favourite.</p>
+      <p class="deal-price">$9.99</p>
+    </article>
+    <article class="deal-card" data-day="2">
+      <span class="deal-day">Tuesday</span>
+      <h3>Lamb Over Rice</h3>
+      <p class="deal-note">Slow-cooked lamb, fresh rice.</p>
+      <p class="deal-price">$9.99</p>
+    </article>
+    <article class="deal-card deal-card--wings" data-day="3">
+      <span class="deal-day">Wednesday — Wings Day</span>
+      <h3>Fresh wings, never frozen</h3>
+      <p class="deal-note">Only 99&cent; per wing, in 10 flavours:</p>
+      <div class="flavour-chips">
+        <span>Regular</span><span>Buffalo</span><span>Nashville Hot</span><span>Sweet Teriyaki</span><span>Jamaican Jerk</span><span>Kickin' Bourbon</span><span>Garlic Parmesan</span><span>Mango Habanero</span><span>Barbeque</span><span>Sweet Red Chili</span>
+      </div>
+      <p class="deal-price">99&cent; per wing</p>
+    </article>
+    <article class="deal-card" data-day="4">
+      <span class="deal-day">Thursday</span>
+      <h3>Beef Patty</h3>
+      <p class="deal-note">Flaky, savoury, ready to go.</p>
+      <p class="deal-price">$2.49 each</p>
+    </article>
+    <article class="deal-card" data-day="5">
+      <span class="deal-day">Friday</span>
+      <h3>Fried Chicken (4 pc) with Fries</h3>
+      <p class="deal-note">Friday-night sharing box.</p>
+      <p class="deal-price">$9.99</p>
+    </article>
+    <article class="deal-card" data-day="6">
+      <span class="deal-day">Saturday</span>
+      <h3>Three Chicken Tenders</h3>
+      <p class="deal-note">Crispy tenders for the weekend.</p>
+      <p class="deal-price">$4.99</p>
+    </article>
+  </div>
+  <div class="deals-snacks">
+    <h3>Indian Snacks</h3>
+    <p>Jumbo Samosa, Hyderabadi Onion Samosa, Aloo Tikki, Pakoda, Aloo Bonda, Masala Fries and Dal Kachori.</p>
+    <ul>
+      <li>Jumbo Samosa</li><li>Hyderabadi Onion Samosa</li><li>Aloo Tikki</li><li>Pakoda</li><li>Aloo Bonda</li><li>Masala Fries</li><li>Dal Kachori</li>
+    </ul>
+    <p class="photo-note">Prices for the Indian Snacks were not shown on the poster — please ask the restaurant before adding prices here.</p>
+  </div>
+  <p class="deals-source">Deal prices are from the restaurant's Instagram posters (@dbmartmunchiesgrill). The full menu is on the Menu page — these deals are a featured highlight, not a replacement for it.</p>
+</section>
+
 <!-- CONTACT BANNER -->
 <section class="offer-contact container" id="contact">
 
@@ -273,10 +380,13 @@
 
         <h2>Good Food. Great Deals. Always!</h2>
 
-<button onclick="callRestaurant()" style="background:#f97316;color:#fff;border:none;padding:12px 28px;border-radius:999px;font-size:16px;font-weight:600;cursor:pointer;">Call Us</button>
+<button type="button" class="ai-call-btn" onclick="callRestaurant()"><span class="live-dot" aria-hidden="true"></span>Call AI Assistant to Order</button>
+
+        <a href="tel:+18609560415" class="phone-btn"><i class="fa-solid fa-phone"></i> (860) 956-0415 — call the restaurant</a>
 
 
         <p>(860) 956-0415</p>
+        <p class="contact-hours">Mon–Wed 5 AM–2 AM · Thu 5 AM–midnight · Fri &amp; Sat open 24 hours · Sun 5 AM–midnight</p>
 
     </div>
 
@@ -298,6 +408,7 @@
             Real Flavour.
         </h2>
 
+        <p class="rating-line"><span class="stars">★★★★</span> <strong>4.0</strong> · 76 reviews on Google</p>
         <div class="reviews-grid">
 
             <div class="review-card">
@@ -353,7 +464,7 @@
         </p>
 
         <div class="social-links">
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/dbmartmunchiesgrill/" aria-label="Instagram — @dbmartmunchiesgrill" target="_blank" rel="noopener">
                 <i class="fa-brands fa-instagram"></i>
             </a>
 
@@ -404,6 +515,7 @@
         <p>Hartford, CT 06114</p>
 
         <a href="tel:+18609560415">(860) 956-0415</a>
+        <p>Mon–Wed 5 AM–2 AM · Thu 5 AM–midnight · Fri &amp; Sat open 24 hours · Sun 5 AM–midnight</p>
 
     </div>
 
@@ -424,5 +536,6 @@ function callRestaurant() {
 }
 </script>
 
+<script src="premium.js" defer></script>
 </body>
 </html>

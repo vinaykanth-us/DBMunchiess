@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="help.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="premium.css">
 </head>
 
 <body>
@@ -37,6 +38,8 @@
         </nav>
 
         <div class="nav-actions">
+            <button type="button" class="ai-call-btn" onclick="callRestaurant()"><span class="live-dot" aria-hidden="true"></span>Call AI Assistant to Order</button>
+
             <a href="menu.html" class="nav-order-btn">
                 Order Now
                 <i class="fa-solid fa-arrow-right"></i>
@@ -302,6 +305,8 @@
             <p>894 Maple Ave</p>
             <p>Hartford, CT 06114</p>
             <p>(860) 956-0415</p>
+            <p>Mon–Wed 5 AM–2 AM · Thu 5 AM–midnight · Fri &amp; Sat open 24 hours · Sun 5 AM–midnight</p>
+            <p><a href="https://www.instagram.com/dbmartmunchiesgrill/" target="_blank" rel="noopener">Instagram — @dbmartmunchiesgrill</a></p>
         </div>
 
         <div class="copyright">
@@ -309,7 +314,7 @@
         </div>
 
     </footer>
-<button onclick="callRestaurant()" style="background:#f97316;color:#fff;border:none;padding:12px 28px;border-radius:999px;font-size:16px;font-weight:600;cursor:pointer;">Call Us</button>
+<button type="button" class="ai-call-btn" onclick="callRestaurant()"><span class="live-dot" aria-hidden="true"></span>Call AI Assistant to Order</button>
  
 
 </div>
@@ -321,5 +326,6 @@ function callRestaurant() {
 </script>
 
 
+<script src="premium.js" defer></script>
 </body>
 </html>
