@@ -5,52 +5,52 @@
 
 const menuItems = [
     // PLATTERS
-    { id: 1, name: "Chicken Gyro Over Rice", price: 11.99, category: "Platters", image: "rice" },
-    { id: 2, name: "Lamb Gyro Over Rice", price: 11.99, category: "Platters", image: "rice" },
-    { id: 3, name: "Combo (Chicken And Lamb)", price: 11.97, category: "Platters", image: "rice" },
-    { id: 4, name: "Falafel Over Rice", price: 11.99, category: "Platters", image: "falafel" },
+    { id: 1, name: "Chicken Gyro Over Rice", price: 11.99, category: "Platters", image: "chicken-over-rice" },
+    { id: 2, name: "Lamb Gyro Over Rice", price: 11.99, category: "Platters", image: "lamb-over-rice" },
+    { id: 3, name: "Combo (Chicken And Lamb)", price: 11.97, category: "Platters", image: "combo-over-rice" },
+    { id: 4, name: "Falafel Over Rice", price: 11.99, category: "Platters", image: "falafel-over-rice" },
 
     // GYROS
-    { id: 5, name: "Chicken Gyro", price: 9.99, category: "Gyros", image: "gyro" },
-    { id: 6, name: "Lamb Gyro", price: 9.99, category: "Gyros", image: "gyro" },
-    { id: 7, name: "Munchies Special Falafel Gyro", price: 9.99, category: "Gyros", image: "falafel" },
+    { id: 5, name: "Chicken Gyro", price: 9.99, category: "Gyros", image: "chicken-gyro" },
+    { id: 6, name: "Lamb Gyro", price: 9.99, category: "Gyros", image: "lamb-gyro" },
+    { id: 7, name: "Munchies Special Falafel Gyro", price: 9.99, category: "Gyros", image: "falafel-gyro" },
 
     // FILL A PITA
-    { id: 8, name: "Munchies Special Falafel Pita", price: 9.99, category: "Fill a Pita", image: "falafel" },
-    { id: 9, name: "Munchies Special Lamb Pita", price: 9.99, category: "Fill a Pita", image: "gyro" },
+    { id: 8, name: "Munchies Special Falafel Pita", price: 9.99, category: "Fill a Pita", image: "falafel-pita" },
+    { id: 9, name: "Munchies Special Lamb Pita", price: 9.99, category: "Fill a Pita", image: "lamb-pita" },
 
     // HANDHELDS
-    { id: 10, name: "South Side Handheld", price: 10.00, category: "Handhelds", image: "burger" },
-    { id: 11, name: "Cali Style Handheld", price: 10.00, category: "Handhelds", image: "burger" },
-    { id: 12, name: "USA Handhelds", price: 10.00, category: "Handhelds", image: "burger" },
-    { id: 13, name: "The Warrior Handheld", price: 10.00, category: "Handhelds", image: "burger" },
-    { id: 14, name: "The Philly Handheld", price: 10.00, category: "Handhelds", image: "burger" },
+    { id: 10, name: "South Side Handheld", price: 10.00, category: "Handhelds", image: "south-side-handheld" },
+    { id: 11, name: "Cali Style Handheld", price: 10.00, category: "Handhelds", image: "cali-handheld" },
+    { id: 12, name: "USA Handhelds", price: 10.00, category: "Handhelds", image: "usa-handheld" },
+    { id: 13, name: "The Warrior Handheld", price: 10.00, category: "Handhelds", image: "warrior-handheld" },
+    { id: 14, name: "The Philly Handheld", price: 10.00, category: "Handhelds", image: "philly-handheld" },
 
     // BREAKFAST
-    { id: 15, name: "Bacon And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "sandwich" },
-    { id: 16, name: "Sausage And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "sandwich" },
-    { id: 17, name: "Egg And Cheese Sandwich", price: 4.50, category: "Breakfast Sandwiches", image: "sandwich" },
+    { id: 15, name: "Bacon And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "bacon-egg-sandwich" },
+    { id: 16, name: "Sausage And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "sausage-egg-sandwich" },
+    { id: 17, name: "Egg And Cheese Sandwich", price: 4.50, category: "Breakfast Sandwiches", image: "egg-cheese-sandwich" },
 
     // APPETIZERS
-    { id: 18, name: "Hummus With Pita Bread With Chicken", price: 8.99, category: "Appetizers", image: "hummus" },
-    { id: 19, name: "Hummus With Pita Chips With Chicken", price: 8.99, category: "Appetizers", image: "hummus" },
-    { id: 20, name: "Hummus With Pita Bread", price: 6.49, category: "Appetizers", image: "hummus" },
-    { id: 21, name: "Grape Leaves", price: 3.99, category: "Appetizers", image: "salad" },
-    { id: 22, name: "Falafel", price: 3.99, category: "Appetizers", image: "falafel" },
+    { id: 18, name: "Hummus With Pita Bread With Chicken", price: 8.99, category: "Appetizers", image: "hummus-pita-chicken" },
+    { id: 19, name: "Hummus With Pita Chips With Chicken", price: 8.99, category: "Appetizers", image: "hummus-chips-chicken" },
+    { id: 20, name: "Hummus With Pita Bread", price: 6.49, category: "Appetizers", image: "hummus-pita" },
+    { id: 21, name: "Grape Leaves", price: 3.99, category: "Appetizers", image: "grape-leaves" },
+    { id: 22, name: "Falafel", price: 3.99, category: "Appetizers", image: "falafel-plate" },
 
     // SALADS
-    { id: 23, name: "Fattoush Salad", price: 8.99, category: "Munchies Special Salads", image: "salad" },
-    { id: 24, name: "Tabouli Salad", price: 8.99, category: "Munchies Special Salads", image: "salad" },
+    { id: 23, name: "Fattoush Salad", price: 8.99, category: "Munchies Special Salads", image: "fattoush-salad" },
+    { id: 24, name: "Tabouli Salad", price: 8.99, category: "Munchies Special Salads", image: "tabouli-salad" },
 
     // SIDES
     { id: 25, name: "Jamaican Beef Patty", price: 3.89, category: "Just side", image: "jamaican-beef-patty" },
     { id: 26, name: "Fries", price: 2.89, category: "Just side", image: "fries" },
-    { id: 27, name: "Falafel 1 Piece", price: 0.75, category: "Just side", image: "falafel" },
-    { id: 28, name: "Fresh Salad", price: 2.99, category: "Just side", image: "salad" },
-    { id: 29, name: "Rice", price: 2.99, category: "Just side", image: "rice" },
-    { id: 30, name: "Tahini Sauce", price: 0.65, category: "Just side", image: "sauce" },
-    { id: 31, name: "Munchies Special White Sauce", price: 0.65, category: "Just side", image: "sauce" },
-    { id: 32, name: "Munchies Special Hot Sauce", price: 0.65, category: "Just side", image: "sauce" },
+    { id: 27, name: "Falafel 1 Piece", price: 0.75, category: "Just side", image: "falafel-1-piece" },
+    { id: 28, name: "Fresh Salad", price: 2.99, category: "Just side", image: "fresh-salad" },
+    { id: 29, name: "Rice", price: 2.99, category: "Just side", image: "plain-rice" },
+    { id: 30, name: "Tahini Sauce", price: 0.65, category: "Just side", image: "tahini-sauce" },
+    { id: 31, name: "Munchies Special White Sauce", price: 0.65, category: "Just side", image: "white-sauce" },
+    { id: 32, name: "Munchies Special Hot Sauce", price: 0.65, category: "Just side", image: "hot-sauce" },
     { id: 33, name: "Onion Rings", price: 4.49, category: "Just side", image: "onion-rings" },
 { id: 34, name: "Jojo Potatoes", price: 4.99, category: "Just side", image: "jojo-potatoes", available: false },
 
@@ -60,7 +60,7 @@ const menuItems = [
     { id: 37, name: "Snapple Apple", price: 2.99, category: "Drinks", image: "snapple-apple" },
 
     // DESSERTS
-    { id: 38, name: "Cheese Cake", price: 5.99, category: "Desserts", image: "dessert" }
+    { id: 38, name: "Cheese Cake", price: 5.99, category: "Desserts", image: "cheese-cake" }
 ];
 
 
@@ -70,24 +70,45 @@ const menuItems = [
 ========================================== */
 
 const foodImages = {
-    rice: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=85",
-    gyro: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600&q=85",
-    falafel: "assets/images/menu/falafel.webp?v=1",
-    burger: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=85",
-    sandwich: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=85",
-    hummus: "https://images.unsplash.com/photo-1577906096429-f73c2c312435?w=600&q=85",
-    salad: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=85",
-    snack: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=85",
+    "falafel": "assets/images/menu/falafel.webp?v=1",
     "onion-rings": "assets/images/menu/onion-rings.webp?v=1",
-    fries: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=85",
-    sauce: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=600&q=85",
-    drink: "assets/images/menu/drinks.webp?v=1",
     "snapple-apple": "assets/images/menu/snapple-apple.webp?v=1",
     "coca-cola": "assets/images/menu/coca-cola-can.webp?v=1",
     "water-bottle": "assets/images/menu/water-bottle.webp?v=1",
     "jojo-potatoes": "assets/images/menu/jojo-potatoes.webp?v=1",
     "jamaican-beef-patty": "assets/images/menu/jamaican-beef-patty.webp?v=1",
-    dessert: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&q=85"
+    "bacon-egg-sandwich": "assets/images/menu/bacon-egg-sandwich.webp?v=1",
+    "cali-handheld": "assets/images/menu/cali-handheld.webp?v=1",
+    "cheese-cake": "assets/images/menu/cheese-cake.webp?v=1",
+    "chicken-gyro": "assets/images/menu/chicken-gyro.webp?v=1",
+    "chicken-over-rice": "assets/images/menu/chicken-over-rice.webp?v=1",
+    "combo-over-rice": "assets/images/menu/combo-over-rice.webp?v=1",
+    "egg-cheese-sandwich": "assets/images/menu/egg-cheese-sandwich.webp?v=1",
+    "falafel-1-piece": "assets/images/menu/falafel-1-piece.webp?v=1",
+    "falafel-gyro": "assets/images/menu/falafel-gyro.webp?v=1",
+    "falafel-over-rice": "assets/images/menu/falafel-over-rice.webp?v=1",
+    "falafel-pita": "assets/images/menu/falafel-pita.webp?v=1",
+    "falafel-plate": "assets/images/menu/falafel-plate.webp?v=1",
+    "fattoush-salad": "assets/images/menu/fattoush-salad.webp?v=1",
+    "fresh-salad": "assets/images/menu/fresh-salad.webp?v=1",
+    "fries": "assets/images/menu/fries.webp?v=1",
+    "grape-leaves": "assets/images/menu/grape-leaves.webp?v=1",
+    "hot-sauce": "assets/images/menu/hot-sauce.webp?v=1",
+    "hummus-chips-chicken": "assets/images/menu/hummus-chips-chicken.webp?v=1",
+    "hummus-pita": "assets/images/menu/hummus-pita.webp?v=1",
+    "hummus-pita-chicken": "assets/images/menu/hummus-pita-chicken.webp?v=1",
+    "lamb-gyro": "assets/images/menu/lamb-gyro.webp?v=1",
+    "lamb-over-rice": "assets/images/menu/lamb-over-rice.webp?v=1",
+    "lamb-pita": "assets/images/menu/lamb-pita.webp?v=1",
+    "philly-handheld": "assets/images/menu/philly-handheld.webp?v=1",
+    "plain-rice": "assets/images/menu/plain-rice.webp?v=1",
+    "sausage-egg-sandwich": "assets/images/menu/sausage-egg-sandwich.webp?v=1",
+    "south-side-handheld": "assets/images/menu/south-side-handheld.webp?v=1",
+    "tabouli-salad": "assets/images/menu/tabouli-salad.webp?v=1",
+    "tahini-sauce": "assets/images/menu/tahini-sauce.webp?v=1",
+    "usa-handheld": "assets/images/menu/usa-handheld.webp?v=1",
+    "warrior-handheld": "assets/images/menu/warrior-handheld.webp?v=1",
+    "white-sauce": "assets/images/menu/white-sauce.webp?v=1",
 };
 
 
