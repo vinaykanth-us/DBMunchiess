@@ -271,6 +271,8 @@ img[data-placeholder="true"] { filter: saturate(.95); }
 @media (max-width: 640px) {
   .featured-grid { grid-template-columns: 1fr; }
 }
+.combo-offer { margin-top: 18px; max-width: 860px; margin-left: auto; margin-right: auto; }
+.combo-offer .deal-img { height: 220px; }
 
 /* ---------- Contact banner: AI button + phone kept distinct ---------- */
 .offer-contact, .call-contact-strip, .help-contact-strip, .tracking-help {
