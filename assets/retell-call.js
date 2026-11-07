@@ -8,7 +8,7 @@
    Until a public key is set, the button opens the Retell share link as before.
 ========================================== */
 
-const RETELL_PUBLIC_KEY = "";   // e.g. "public_key_xxxxxxxx"
+const RETELL_PUBLIC_KEY = "public_key_c036211d19017dcbccd95";
 const RETELL_AGENT_ID = "agent_50154412b141a7c91be232846f";
 const RETELL_SHARE_LINK = "https://agent.retellai.com/orb/agent_50154412b141a7c91be232846f?token=e66ca8441852ef5e52f5ec19f13c6981";
 
