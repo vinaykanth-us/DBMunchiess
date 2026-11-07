@@ -9,9 +9,11 @@
 .navbar .nav-order-btn, .navbar .ai-call-btn { transition: padding .35s ease, font-size .35s ease; }
 
 .navbar.is-scrolled {
+  position: fixed !important;
   height: 64px;
-  top: 10px;
-  margin-inline: max(12px, calc((100% - 1240px) / 2));
+  top: 10px; left: 0; right: 0;
+  width: auto; max-width: 1240px;
+  margin-inline: auto !important;
   padding-inline: 22px;
   border-radius: 999px;
   background: rgba(255, 253, 249, .62);
@@ -25,8 +27,12 @@
 .navbar.is-scrolled .nav-order-btn { padding-block: 9px; font-size: 13px; }
 
 @media (max-width: 900px) {
-  .navbar.is-scrolled { height: 58px; top: 8px; padding-block: 0; flex-wrap: nowrap; }
+  .navbar.is-scrolled { left: 10px; right: 10px; height: 58px; top: 8px; padding-block: 0; flex-wrap: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   .navbar, .navbar * { transition: none !important; }
 }
+
+/* keeps the page from jumping when the bar turns fixed */
+.nav-spacer { display: none; }
+.nav-spacer.on { display: block; }
