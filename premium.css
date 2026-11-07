@@ -340,3 +340,29 @@ img[data-placeholder="true"] { filter: saturate(.95); }
 .deal-card .deal-price { font-size: 22px; font-weight: 800; }
 .photo-note { font-size: 12.5px; color: var(--ink-soft); text-align: center; margin-top: 12px; }
 @media (max-width: 640px) { .hero-visual .hero-image { height: 280px; } }
+
+/* ---------- Cuisine thumbnails ---------- */
+.cuisine-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+.cuisine-thumbs figure { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-sm); background: #fff; transition: transform .25s ease, box-shadow .25s ease; }
+.cuisine-thumbs figure:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.16); }
+.cuisine-thumbs img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.cuisine-thumbs figcaption { padding: 10px 12px; font-size: 14px; font-weight: 700; text-align: center; }
+@media (max-width: 640px) { .cuisine-thumbs { grid-template-columns: 1fr; } .cuisine-thumbs img { height: 180px; } }
+.cuisine-featured { grid-column: span 2; }
+.cuisine-featured img { height: 220px; }
+.cuisine-featured figcaption { background: var(--gold-pale); }
+@media (max-width: 640px) { .cuisine-featured { grid-column: span 1; } .cuisine-featured img { height: 180px; } }
+.deal-img { width: 100%; height: 170px; object-fit: cover; display: block; border-radius: 12px 12px 0 0; margin: -16px -16px 12px -16px; width: calc(100% + 32px); }
+.deal-card { overflow: hidden; }
+
+/* Reviews — fix dull / low-contrast look */
+.review-banner .newsletter-label { color: #fbbf24; letter-spacing: .14em; }
+.review-banner h2 { color: #ffffff; }
+.review-banner .rating-line { color: #fde68a; }
+.review-banner .rating-line strong { color: #ffffff; }
+.review-banner .review-card { background: rgba(255,255,255,.14); border: 1px solid rgba(251,191,36,.45); box-shadow: 0 10px 28px rgba(0,0,0,.35); overflow: hidden; padding: 0 18px 18px; transition: transform .25s ease, box-shadow .25s ease; }
+.review-banner .review-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0,0,0,.45); }
+.review-banner .review-img { width: calc(100% + 36px); height: 150px; object-fit: cover; display: block; margin: 0 -18px 14px -18px; }
+.review-banner .review-card p { color: #f3e8ff; font-size: 15px; }
+.review-banner .review-card h4 { color: #fbbf24; font-size: 14px; }
+.review-banner .review-stars { color: #f97316; }
