@@ -1,0 +1,32 @@
+/* Premium option 5 — glass navbar that blurs and shrinks on scroll (home page only). */
+.page-shell { overflow: clip; }            /* lets position: sticky work (hidden blocks it) */
+.navbar {
+  position: sticky; top: 0; z-index: 200;
+  transition: height .35s ease, padding .35s ease, margin .35s ease,
+              border-radius .35s ease, background .35s ease, box-shadow .35s ease;
+}
+.navbar .logo { transition: font-size .35s ease; }
+.navbar .nav-order-btn, .navbar .ai-call-btn { transition: padding .35s ease, font-size .35s ease; }
+
+.navbar.is-scrolled {
+  height: 64px;
+  top: 10px;
+  margin-inline: max(12px, calc((100% - 1240px) / 2));
+  padding-inline: 22px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, .62);
+  -webkit-backdrop-filter: saturate(170%) blur(18px);
+  backdrop-filter: saturate(170%) blur(18px);
+  border: 1px solid rgba(255, 255, 255, .7);
+  box-shadow: 0 10px 32px rgba(43, 26, 51, .14), inset 0 1px 0 rgba(255,255,255,.8);
+}
+.navbar.is-scrolled .logo { font-size: 22px; }
+.navbar.is-scrolled .ai-call-btn,
+.navbar.is-scrolled .nav-order-btn { padding-block: 9px; font-size: 13px; }
+
+@media (max-width: 900px) {
+  .navbar.is-scrolled { height: 58px; top: 8px; padding-block: 0; flex-wrap: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar, .navbar * { transition: none !important; }
+}
