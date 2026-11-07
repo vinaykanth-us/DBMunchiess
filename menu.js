@@ -43,7 +43,7 @@ const menuItems = [
     { id: 24, name: "Tabouli Salad", price: 8.99, category: "Munchies Special Salads", image: "salad" },
 
     // SIDES
-    { id: 25, name: "Jamaican Beef Patty", price: 3.89, category: "Just side", image: "snack" },
+    { id: 25, name: "Jamaican Beef Patty", price: 3.89, category: "Just side", image: "jamaican-beef-patty" },
     { id: 26, name: "Fries", price: 2.89, category: "Just side", image: "fries" },
     { id: 27, name: "Falafel 1 Piece", price: 0.75, category: "Just side", image: "falafel" },
     { id: 28, name: "Fresh Salad", price: 2.99, category: "Just side", image: "salad" },
@@ -51,13 +51,13 @@ const menuItems = [
     { id: 30, name: "Tahini Sauce", price: 0.65, category: "Just side", image: "sauce" },
     { id: 31, name: "Munchies Special White Sauce", price: 0.65, category: "Just side", image: "sauce" },
     { id: 32, name: "Munchies Special Hot Sauce", price: 0.65, category: "Just side", image: "sauce" },
-    { id: 33, name: "Onion Rings", price: 4.49, category: "Just side", image: "snack" },
+    { id: 33, name: "Onion Rings", price: 4.49, category: "Just side", image: "onion-rings" },
 { id: 34, name: "Jojo Potatoes", price: 4.99, category: "Just side", image: "fries", available: false },
 
     // DRINKS
-    { id: 35, name: "Soda (Can)", price: 2.49, category: "Drinks", image: "drink" },
-    { id: 36, name: "Water Bottle", price: 1.99, category: "Drinks", image: "drink" },
-    { id: 37, name: "Snapple Apple", price: 2.99, category: "Drinks", image: "drink" },
+    { id: 35, name: "Soda (Can)", price: 2.49, category: "Drinks", image: "coca-cola" },
+    { id: 36, name: "Water Bottle", price: 1.99, category: "Drinks", image: "water-bottle" },
+    { id: 37, name: "Snapple Apple", price: 2.99, category: "Drinks", image: "snapple-apple" },
 
     // DESSERTS
     { id: 38, name: "Cheese Cake", price: 5.99, category: "Desserts", image: "dessert" }
@@ -78,9 +78,15 @@ const foodImages = {
     hummus: "https://images.unsplash.com/photo-1577906096429-f73c2c312435?w=600&q=85",
     salad: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=85",
     snack: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=85",
+    "onion-rings": "assets/images/menu/onion-rings.webp?v=1",
     fries: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=85",
     sauce: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=600&q=85",
     drink: "assets/images/menu/drinks.webp?v=1",
+    "snapple-apple": "assets/images/menu/snapple-apple.webp?v=1",
+    "coca-cola": "assets/images/menu/coca-cola-can.webp?v=1",
+    "water-bottle": "assets/images/menu/water-bottle.webp?v=1",
+    "jojo-potatoes": "assets/images/menu/jojo-potatoes.webp?v=1",
+    "jamaican-beef-patty": "assets/images/menu/jamaican-beef-patty.webp?v=1",
     dessert: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&q=85"
 };
 
