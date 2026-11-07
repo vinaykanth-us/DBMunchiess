@@ -30,6 +30,20 @@
       .promo-banner { margin-top: 22px; padding: 22px 26px; border-radius: 16px; background: #e6f7f5; border: 1px solid #bfe8e3; }
       .promo-banner strong { display: block; font-size: 22px; line-height: 1.35; color: #0f3d3a; }
       .promo-banner span { display: block; margin-top: 6px; font-size: 14px; color: #0f3d3a; }
+      .grocery-list li { cursor: pointer; }
+      .item-modal-overlay { position: fixed; inset: 0; background: rgba(43, 26, 51, .55); opacity: 0; pointer-events: none; transition: opacity .25s ease; z-index: 90; }
+      .item-modal-overlay.open { opacity: 1; pointer-events: auto; }
+      .item-modal { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -46%) scale(.97); width: min(420px, 92vw); background: #fff; border-radius: 20px; box-shadow: 0 24px 60px rgba(43, 26, 51, .3); padding: 0 0 22px; z-index: 91; opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease; overflow: hidden; }
+      .item-modal.open { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+      .item-modal-photo { width: 100%; height: 240px; object-fit: contain; background: #faf7ef; display: block; }
+      .item-modal-body { padding: 18px 22px 0; }
+      .item-modal-cat { display: inline-block; padding: 5px 12px; border-radius: 999px; background: #f7ecd7; color: #6b5433; font-size: 12px; font-weight: 600; }
+      .item-modal-body h3 { font-size: 20px; line-height: 1.3; margin: 10px 0 6px; }
+      .item-modal-price { font-size: 19px; font-weight: 700; color: #0f3d3a; }
+      .item-modal-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: none; background: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .15); font-size: 18px; line-height: 1; cursor: pointer; z-index: 2; }
+      .item-modal-qty { margin: 14px 0; }
+      .item-modal-add { width: 100%; padding: 14px; border: none; border-radius: 12px; background: var(--orange); color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; }
+      .item-modal-add:hover { background: var(--orange-dark); }
       .price-tag { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #e6f7f5; border: 1px solid #bfe8e3; color: #0f3d3a; font-weight: 700; font-size: 14px; }
     </style>
 </head>
@@ -56,6 +70,11 @@
                 Order Now
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
+
+            <button class="menu-cart-btn" id="cartButton" aria-label="Open cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span id="cartCount">0</span>
+            </button>
 
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                 <i class="fa-solid fa-bars"></i>
@@ -322,6 +341,37 @@
 
         </section>
 
+        <!-- CART PANEL -->
+        <div class="cart-overlay" id="cartOverlay"></div>
+
+        <aside class="cart-panel" id="cartPanel">
+            <div class="cart-header">
+                <div>
+                    <span class="eyebrow">YOUR SELECTION</span>
+                    <h2>Your Cart</h2>
+                </div>
+                <button id="closeCart" aria-label="Close cart">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <strong id="cartTotal">$0.00</strong>
+                </div>
+
+                <button class="primary-btn checkout-btn" id="checkoutButton">
+                    Continue to Order
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </aside>
+
     </main>
 
     <footer class="footer container" id="contact">
@@ -355,6 +405,24 @@
 
 </div>
 
+<!-- ITEM DETAIL POPUP -->
+<div class="item-modal-overlay" id="itemModalOverlay"></div>
+<div class="item-modal" id="itemModal" role="dialog" aria-modal="true">
+    <button class="item-modal-close" id="itemModalClose" aria-label="Close">×</button>
+    <img class="item-modal-photo" id="itemModalImg" src="" alt="">
+    <div class="item-modal-body">
+        <span class="item-modal-cat" id="itemModalCat"></span>
+        <h3 id="itemModalName"></h3>
+        <p class="item-modal-price" id="itemModalPrice"></p>
+        <div class="cart-quantity item-modal-qty">
+            <button id="itemModalMinus" aria-label="Decrease quantity">−</button>
+            <span id="itemModalQty">1</span>
+            <button id="itemModalPlus" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="item-modal-add" id="itemModalAdd">Add to cart</button>
+    </div>
+</div>
+
 <script>
 function callRestaurant() {
   window.open("https://agent.retellai.com/orb/agent_50154412b141a7c91be232846f?token=e66ca8441852ef5e52f5ec19f13c6981", "_blank");
@@ -385,6 +453,135 @@ function callRestaurant() {
     render();
   });
   render();
+})();
+</script>
+
+<script>
+(function () {
+  var cart = [];
+  var modal = document.getElementById("itemModal");
+  var overlay = document.getElementById("itemModalOverlay");
+  var modalImg = document.getElementById("itemModalImg");
+  var modalCat = document.getElementById("itemModalCat");
+  var modalName = document.getElementById("itemModalName");
+  var modalPrice = document.getElementById("itemModalPrice");
+  var modalQty = document.getElementById("itemModalQty");
+  var current = null;
+  var qty = 1;
+
+  function itemFromLi(li) {
+    var name = li.querySelector("strong").textContent.trim();
+    var priceText = li.querySelector(".price-tag").textContent.replace(/[^0-9.]/g, "");
+    var img = li.querySelector("img");
+    var section = li.closest(".grocery-section");
+    return {
+      name: name,
+      price: parseFloat(priceText) || 0,
+      image: img ? img.getAttribute("src") : "",
+      category: section ? (section.dataset.category || "Groceries") : "Groceries"
+    };
+  }
+
+  function openModal(item) {
+    current = item;
+    qty = 1;
+    modalQty.textContent = "1";
+    modalName.textContent = item.name;
+    modalCat.textContent = item.category;
+    modalPrice.textContent = "$" + item.price.toFixed(2);
+    if (item.image) {
+      modalImg.style.display = "";
+      modalImg.src = item.image;
+      modalImg.alt = item.name;
+    } else {
+      modalImg.style.display = "none";
+    }
+    modal.classList.add("open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal() {
+    modal.classList.remove("open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".grocery-list li").forEach(function (li) {
+    li.addEventListener("click", function () { openModal(itemFromLi(li)); });
+  });
+  document.getElementById("itemModalClose").addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+  document.getElementById("itemModalMinus").addEventListener("click", function () {
+    if (qty > 1) { qty--; modalQty.textContent = qty; }
+  });
+  document.getElementById("itemModalPlus").addEventListener("click", function () {
+    qty++; modalQty.textContent = qty;
+  });
+
+  /* ---- cart, like the restaurant menu ---- */
+  var cartPanel = document.getElementById("cartPanel");
+  var cartOverlay = document.getElementById("cartOverlay");
+
+  function updateCart() {
+    var totalQty = cart.reduce(function (s, i) { return s + i.quantity; }, 0);
+    var totalPrice = cart.reduce(function (s, i) { return s + i.price * i.quantity; }, 0);
+    document.getElementById("cartCount").textContent = totalQty;
+    document.getElementById("cartTotal").textContent = "$" + totalPrice.toFixed(2);
+    var box = document.getElementById("cartItems");
+    if (!cart.length) { box.innerHTML = '<p class="empty-cart">Your cart is empty.</p>'; return; }
+    box.innerHTML = cart.map(function (item) {
+      var safeName = item.name.replace(/"/g, "&quot;");
+      return '<div class="cart-item"><div><h4>' + item.name + '</h4><p>$' + (item.price * item.quantity).toFixed(2) + '</p></div>' +
+        '<div class="cart-quantity"><button data-action="decrease" data-name="' + safeName + '">\u2212</button><span>' + item.quantity + '</span>' +
+        '<button data-action="increase" data-name="' + safeName + '">+</button></div></div>';
+    }).join("");
+  }
+
+  function addToCart(item, n) {
+    var found = null;
+    cart.forEach(function (i) { if (i.name === item.name) found = i; });
+    if (found) { found.quantity += n; } else { cart.push({ name: item.name, price: item.price, quantity: n }); }
+    updateCart();
+  }
+
+  document.getElementById("itemModalAdd").addEventListener("click", function () {
+    if (!current) return;
+    addToCart(current, qty);
+    var btn = this;
+    btn.textContent = "Added \u2713";
+    setTimeout(function () { btn.textContent = "Add to cart"; closeModal(); }, 500);
+  });
+
+  document.getElementById("cartItems").addEventListener("click", function (e) {
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    var name = btn.dataset.name;
+    cart.forEach(function (i) {
+      if (i.name !== name) return;
+      if (btn.dataset.action === "increase") i.quantity++;
+      if (btn.dataset.action === "decrease") i.quantity--;
+    });
+    cart = cart.filter(function (i) { return i.quantity > 0; });
+    updateCart();
+  });
+
+  function openCart() { cartPanel.classList.add("open"); cartOverlay.classList.add("open"); }
+  function closeCart() { cartPanel.classList.remove("open"); cartOverlay.classList.remove("open"); }
+  document.getElementById("cartButton").addEventListener("click", openCart);
+  document.getElementById("closeCart").addEventListener("click", closeCart);
+  cartOverlay.addEventListener("click", closeCart);
+
+  document.getElementById("checkoutButton").addEventListener("click", function () {
+    if (!cart.length) { alert("Please add items to your cart first."); return; }
+    localStorage.setItem("dbmunchies_cart", JSON.stringify(cart));
+    window.location.href = "checkout.html";
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { closeModal(); closeCart(); }
+  });
+
+  updateCart();
 })();
 </script>
 </body>
