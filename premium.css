@@ -684,3 +684,42 @@ html { scroll-behavior: smooth; }
 .flavour-chips { gap: 6px; margin-top: 4px; }
 .flavour-chips span { padding: 5px 9px; font-size: 11.5px; }
 .deal-card--cta .deal-cta { margin-top: 14px; }
+
+/* ---------- 9. Polish pass (Nov 2026) ---------- */
+/* Wings flavours: a compact dot-separated line instead of 10 chips, so the
+   Wednesday card is close to the others and no card carries a tall empty band. */
+.flavour-chips { display: block; gap: 0; margin-top: 2px; font-size: 13px; line-height: 1.6; color: #7c3a10; }
+.flavour-chips span { display: inline; padding: 0; border: 0; background: none; font-size: 13px; font-weight: 600; color: #7c3a10; }
+.flavour-chips span:not(:last-child)::after { content: " · "; color: #d9a27a; font-weight: 400; }
+.deal-card h3 { font-family: var(--heading); font-weight: 500; font-size: 21px; }
+/* Equal rows only where cards sit side by side; stacked cards size to content. */
+.deals-grid { grid-auto-rows: auto; }
+.flavour-chips span { white-space: nowrap; }
+.flavour-chips span:not(:last-child)::after { color: #c98a5e; white-space: normal; }
+
+/* Snack cards: description as its own soft line. */
+.snack-list li span:not(.snack-tag) { margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft, #6b6470); }
+.snack-list li { padding-bottom: 14px; }
+
+/* Section headings in the display serif, matching the rest of the page. */
+.info-card h2 { font-family: var(--heading); font-weight: 500; font-size: 26px; line-height: 1.25; }
+
+/* Menu search: one clean pill, readable text, no box inside the box. */
+.menu-search { width: 320px; height: 48px; padding: 0 18px; border: 1.5px solid #e5dccf; }
+.menu-search input,
+.menu-search input:focus { border: 0; border-radius: 0; box-shadow: none; padding: 0; font-size: 14px; background: transparent; }
+.menu-search:focus-within { border-color: var(--plum-soft); box-shadow: 0 0 0 4px rgba(91, 58, 114, .12); }
+
+@media (max-width: 700px) {
+  .menu-search { width: 100%; }
+  .menu-search input, .menu-search input:focus { font-size: 16px; } /* stops iOS zoom on tap */
+  .menu-card-content h3 { min-height: 0; }
+  .info-card h2 { font-size: 23px; }
+}
+
+/* Menu heading: left-aligned beside the search on wide screens, so the
+   eyebrow and line under the title line up with it. */
+@media (min-width: 901px) {
+  .menu-heading { text-align: left; }
+  .menu-heading p { margin-inline: 0; }
+}
