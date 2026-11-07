@@ -650,3 +650,22 @@ html { scroll-behavior: smooth; }
   .menu-card-image img { transition: none; }
   .primary-btn::after { display: none; }
 }
+
+/* ---------- 7. Hero buttons — same size, proper alignment ---------- */
+/* Root cause of the mismatch: .primary-btn carries margin-top: 27px
+   (needed elsewhere) and a taller inherited line-height, while
+   .ai-call-btn uses line-height: 1 — so "Order Now" sat lower and
+   shorter. Reset both to identical metrics, scoped to the hero only. */
+.hero-actions .primary-btn,
+.hero-actions .ai-call-btn {
+  margin-top: 0;
+  padding: 15px 26px;
+  font-size: 15px;
+  line-height: 1.2;
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
