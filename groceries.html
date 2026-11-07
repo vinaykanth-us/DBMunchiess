@@ -97,6 +97,9 @@
                 <span>As shown on DoorDash. $0.00 delivery fee, first order.</span>
             </div>
 
+            <!-- CATEGORY FILTERS -->
+            <div class="category-filters" id="groceryFilters"></div>
+
             <div class="grocery-section">
                 <h3>More in store</h3>
                 <p>These departments are listed on DoorDash for this store. The items below are the featured items shown on the listing.</p>
@@ -105,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Soda">
                 <h3>Soda</h3>
                 <p>24 items</p>
                 <ul class="grocery-list">
@@ -136,7 +139,7 @@
                 </ul>
             </div>
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Chips">
                 <h3>Chips</h3>
                 <p>23 items</p>
                 <ul class="grocery-list">
@@ -166,7 +169,7 @@
                 </ul>
             </div>
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Juice">
                 <h3>Juice</h3>
                 <p>24 items</p>
                 <ul class="grocery-list">
@@ -197,7 +200,7 @@
                 </ul>
             </div>
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Gummy">
                 <h3>Gummy</h3>
                 <p>11 items</p>
                 <ul class="grocery-list">
@@ -215,7 +218,7 @@
                 </ul>
             </div>
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Cleaning">
                 <h3>Cleaning</h3>
                 <p>8 items</p>
                 <ul class="grocery-list">
@@ -230,7 +233,7 @@
                 </ul>
             </div>
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Snack mixes">
                 <h3>Snack mixes</h3>
                 <p>19 items</p>
                 <ul class="grocery-list">
@@ -256,7 +259,7 @@
                 </ul>
             </div>
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Sweets">
                 <h3>Sweets</h3>
                 <p>7 items</p>
                 <ul class="grocery-list">
@@ -271,7 +274,7 @@
             </div>
 
 
-            <div class="grocery-section">
+            <div class="grocery-section" data-category="Sports drinks">
                 <h3>Sports drinks</h3>
                 <p>37 items</p>
                 <ul class="grocery-list">
@@ -358,5 +361,31 @@ function callRestaurant() {
 }
 </script>
 <script src="premium.js" defer></script>
+
+<script>
+(function () {
+  var categories = ["All", "Soda", "Chips", "Juice", "Gummy", "Cleaning", "Snack mixes", "Sweets", "Sports drinks"];
+  var active = "All";
+  var box = document.getElementById("groceryFilters");
+  var sections = Array.prototype.slice.call(document.querySelectorAll(".grocery-section[data-category]"));
+  var moreBlock = document.querySelector(".grocery-section:not([data-category])");
+  function render() {
+    box.innerHTML = categories.map(function (c) {
+      return '<button class="category-btn' + (active === c ? " active" : "") + '" data-category="' + c + '">' + c + "</button>";
+    }).join("");
+    sections.forEach(function (s) {
+      s.style.display = (active === "All" || s.dataset.category === active) ? "" : "none";
+    });
+    if (moreBlock) moreBlock.style.display = active === "All" ? "" : "none";
+  }
+  box.addEventListener("click", function (e) {
+    var b = e.target.closest(".category-btn");
+    if (!b) return;
+    active = b.dataset.category;
+    render();
+  });
+  render();
+})();
+</script>
 </body>
 </html>
