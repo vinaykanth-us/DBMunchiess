@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<link rel="stylesheet" href="premium.css?v=6">
+<link rel="stylesheet" href="premium.css?v=6"><link rel="stylesheet" href="groceries-polish.css?v=1">
     <style>
       .grocery-section { margin-top: 28px; }
       .grocery-section h3 { font-size: 22px; margin-bottom: 4px; }
@@ -115,9 +115,20 @@
                 </div>
             </div>
 
-            <div class="promo-banner">
-                <strong>Get $3 off any order of $20 or more from this store.</strong>
-                <span>As shown on DoorDash. $0.00 delivery fee, first order.</span>
+            <div class="deal-ticket" role="note" aria-label="DoorDash offer">
+                <div class="deal-ticket-stub">
+                    <span class="deal-ticket-amt">$3</span>
+                    <span class="deal-ticket-off">OFF</span>
+                </div>
+                <div class="deal-ticket-body">
+                    <span class="deal-ticket-eyebrow">DoorDash store offer</span>
+                    <strong>$3 off any order of $20 or more</strong>
+                    <span class="deal-ticket-sub">Plus a $0.00 delivery fee on your first order, as shown on DoorDash.</span>
+                    <div class="deal-meter" aria-live="polite">
+                        <div class="deal-meter-track"><div class="deal-meter-fill" id="dealMeterFill"></div></div>
+                        <span class="deal-meter-text" id="dealMeterText">Your basket: $0.00 of $20.00</span>
+                    </div>
+                </div>
             </div>
 
             <!-- CATEGORY FILTERS -->
@@ -131,8 +142,20 @@
             <div class="grocery-section">
                 <h3>More in store</h3>
                 <p>These departments are listed on DoorDash for this store. The items below are the featured items shown on the listing.</p>
-                <div class="grocery-cats">
-                    <span>Dairy &amp; Eggs</span><span>Bakery</span><span>Pantry</span><span>Drinks</span><span>Snacks</span><span>Candy</span><span>Beauty</span><span>Baby &amp; Child</span><span>Household</span><span>Personal Care</span><span>Pet Care</span><span>Medicine</span><span>Outdoor</span>
+                <div class="dept-grid">
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🥛</span><span>Dairy &amp; Eggs</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🥖</span><span>Bakery</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🥫</span><span>Pantry</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🧃</span><span>Drinks</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🍿</span><span>Snacks</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🍬</span><span>Candy</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">💄</span><span>Beauty</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🍼</span><span>Baby &amp; Child</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🧽</span><span>Household</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🧴</span><span>Personal Care</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">🐾</span><span>Pet Care</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">💊</span><span>Medicine</span></div>
+                    <div class="dept-tile"><span class="dept-emoji" aria-hidden="true">⛺</span><span>Outdoor</span></div>
                 </div>
             </div>
 
@@ -608,6 +631,7 @@
 (function () {
   var categories = ["All", "Soda", "Chips", "Juice", "Gummy", "Cleaning", "Snack mixes", "Sweets", "Energy", "Chocolate", "Still water", "Sports drinks"];
   var active = "All";
+  var EMOJI = { "All": "🛒", "Soda": "🥤", "Chips": "🥔", "Juice": "🧃", "Gummy": "🐻", "Cleaning": "🧼", "Snack mixes": "🥜", "Sweets": "🍭", "Energy": "⚡", "Chocolate": "🍫", "Still water": "💧", "Sports drinks": "🏃" };
   var box = document.getElementById("groceryFilters");
   var search = document.getElementById("grocerySearch");
   var clearBtn = document.getElementById("clearGrocerySearch");
@@ -619,7 +643,8 @@
 
   function renderPills() {
     box.innerHTML = categories.map(function (c) {
-      return '<button class="category-btn' + (active === c ? " active" : "") + '" data-category="' + c + '">' + c + "</button>";
+      var n = c === "All" ? total : document.querySelectorAll('.grocery-section[data-category="' + c + '"] .grocery-list li').length;
+      return '<button class="category-btn' + (active === c ? " active" : "") + '" data-category="' + c + '"><span class="pill-emoji" aria-hidden="true">' + (EMOJI[c] || "") + '</span>' + c + '<span class="pill-count">' + n + "</span></button>";
     }).join("");
   }
   function applyFilters() {
@@ -737,6 +762,13 @@
     var totalPrice = cart.reduce(function (s, i) { return s + i.price * i.quantity; }, 0);
     document.getElementById("cartCount").textContent = totalQty;
     document.getElementById("cartTotal").textContent = "$" + totalPrice.toFixed(2);
+    var fill = document.getElementById("dealMeterFill"), mt = document.getElementById("dealMeterText");
+    if (fill && mt) {
+      fill.style.width = Math.min(100, totalPrice / 20 * 100) + "%";
+      fill.parentNode.parentNode.classList.toggle("is-met", totalPrice >= 20);
+      mt.textContent = totalPrice >= 20 ? "Your basket: $" + totalPrice.toFixed(2) + ". You've reached $20, so the DoorDash deal applies there."
+        : "Your basket: $" + totalPrice.toFixed(2) + " of $20.00. Add $" + (20 - totalPrice).toFixed(2) + " more for the deal.";
+    }
     var box = document.getElementById("cartItems");
     if (!cart.length) { box.innerHTML = '<p class="empty-cart">Your cart is empty.</p>'; return; }
     box.innerHTML = cart.map(function (item) {

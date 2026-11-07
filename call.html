@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="call.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<link rel="stylesheet" href="premium.css?v=6">
+<link rel="stylesheet" href="premium.css?v=6"><link rel="stylesheet" href="call-polish.css?v=1">
 </head>
 
 <body>
@@ -86,38 +86,26 @@
                         Call Restaurant
                     </a>
 
-                    <span class="call-phone-number">
-                        (860) 956-0415
-                    </span>
-                    <p class="photo-note">Prefer the AI assistant? Use the purple AI button on this page — it answers instantly, any time.</p>
+                    <a href="tel:+18609560415" class="call-phone-number">(860) 956-0415</a>
 
                 </div>
 
             </div>
 
 
-            <div class="call-hero-visual">
-
-                <div class="call-orbit orbit-one"></div>
-                <div class="call-orbit orbit-two"></div>
-
-                <div class="call-main-circle">
-
-                    <div class="call-mic-icon">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-
+            <aside class="ai-hero-card" aria-label="AI ordering assistant">
+                <div class="ai-hero-status"><span class="online-dot"></span> AI ordering assistant · Online now</div>
+                <div class="ai-hero-orb" aria-hidden="true">
+                    <span class="ring ring-1"></span><span class="ring ring-2"></span>
+                    <i class="fa-solid fa-headset"></i>
                 </div>
-
-                <span class="call-decoration decoration-one">✦</span>
-                <span class="call-decoration decoration-two">✿</span>
-
-                <div class="call-floating-label">
-                    <span class="online-dot"></span>
-                    Here to help!
-                </div>
-
-            </div>
+                <h3>Order by voice, right here</h3>
+                <p>Talk to our assistant in your browser. It knows the full menu, today's deal and our hours.</p>
+                <button type="button" class="ai-hero-btn" onclick="callRestaurant()">
+                    <i class="fa-solid fa-microphone"></i> Start a voice order
+                </button>
+                <small>Uses your microphone · Free · No app needed</small>
+            </aside>
 
         </section>
 
