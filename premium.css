@@ -262,6 +262,16 @@ img[data-placeholder="true"] { filter: saturate(.95); }
 .snack-list li strong { font-size: 15px; }
 .deals-source { margin-top: 16px; font-size: 12.5px; color: var(--ink-soft); text-align: center; }
 
+/* ---------- New featured dishes (two items, fills the gap after Everyday Deals) ---------- */
+.featured-dishes { padding: 10px 0 30px; }
+.featured-dishes .section-heading { text-align: center; margin-bottom: 24px; }
+.featured-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 860px; margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .featured-grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- Contact banner: AI button + phone kept distinct ---------- */
 .offer-contact, .call-contact-strip, .help-contact-strip, .tracking-help {
   border-radius: var(--radius-lg);
