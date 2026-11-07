@@ -569,3 +569,84 @@ img[data-placeholder="true"] { filter: saturate(.95); }
   .cuisine-thumbs img { height: 180px; }
   .footer { border-radius: 18px 18px 0 0; }
 }
+
+/* ============================================================
+   PREMIUM FINISH — v3 (preview only)
+   "A little bit premium": photo zoom on hover everywhere,
+   gradient primary buttons with a shine sweep, hero photo
+   depth + glass caption, refined logo, tabular prices,
+   gold hairlines, selection + smooth scroll. No layout,
+   data, prices or behaviour changes.
+   ============================================================ */
+
+/* ---------- 1. Photo zoom on hover — every photo card ---------- */
+.deal-card, .snack-list li, .cuisine-thumbs figure, .offer-image,
+.featured-grid .dish-card, .review-banner .review-card { overflow: hidden; }
+.deal-img, .snack-list li img, .cuisine-thumbs img, .offer-image img,
+.featured-grid .dish-card img, .review-banner .review-img {
+  transition: transform .55s cubic-bezier(.22, .61, .36, 1);
+}
+.deal-card:hover .deal-img, .snack-list li:hover img,
+.cuisine-thumbs figure:hover img, .offer-image:hover img,
+.featured-grid .dish-card:hover img, .review-banner .review-card:hover .review-img {
+  transform: scale(1.06);
+}
+/* Menu + grocery cards already zoom; make the zoom a touch slower and smoother */
+.menu-card-image img { transition: transform .55s cubic-bezier(.22, .61, .36, 1); }
+
+/* ---------- 2. Primary buttons — rich gradient + shine ---------- */
+.primary-btn {
+  background: linear-gradient(135deg, #f0783c 0%, #e7652e 60%, #d9541f 100%);
+  box-shadow: 0 10px 24px rgba(231, 101, 46, .35), inset 0 1px 0 rgba(255, 255, 255, .28);
+  position: relative; overflow: hidden;
+}
+.primary-btn:hover {
+  background: linear-gradient(135deg, #f4844a 0%, #ec7136 60%, #e05f27 100%);
+  box-shadow: 0 16px 32px rgba(231, 101, 46, .42), inset 0 1px 0 rgba(255, 255, 255, .28);
+}
+.primary-btn::after {
+  content: ""; position: absolute; top: 0; left: -80%;
+  width: 50%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .35), transparent);
+  transform: skewX(-20deg); transition: left .6s ease;
+}
+.primary-btn:hover::after { left: 130%; }
+
+/* ---------- 3. Hero photo — depth + glass caption ---------- */
+.hero-visual { position: relative; }
+.hero-visual::after {
+  content: ""; position: absolute; inset: 0; z-index: 2;
+  border-radius: 24px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(43, 26, 51, 0) 55%, rgba(43, 26, 51, .22) 100%);
+}
+.hero-caption {
+  z-index: 3; bottom: 18px; right: auto; left: 18px;
+  padding: 8px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, .78);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, .9);
+  box-shadow: 0 8px 20px rgba(43, 26, 51, .18);
+  font-size: 12px; font-weight: 700; color: var(--ink);
+}
+.hero h1 em { font-style: italic; color: var(--orange-dark); }
+
+/* ---------- 4. Logo + eyebrows + navbar hairline ---------- */
+.logo span { font-style: italic; }
+.eyebrow { letter-spacing: .18em; }
+.navbar { border-bottom: 1px solid var(--line); }
+
+/* ---------- 5. Prices — tabular numerals, never jumpy ---------- */
+.menu-price, .deal-price, .cart-total strong, .combo-offer .deal-price {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 6. Footer gold hairline + selection + smooth scroll ---------- */
+.footer { border-top: 1px solid rgba(201, 162, 39, .55); }
+::selection { background: #f6e3b4; color: #2b1a33; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  .deal-img, .snack-list li img, .cuisine-thumbs img, .offer-image img,
+  .featured-grid .dish-card img, .review-banner .review-img,
+  .menu-card-image img { transition: none; }
+  .primary-btn::after { display: none; }
+}
