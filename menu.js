@@ -5,62 +5,62 @@
 
 const menuItems = [
     // PLATTERS
-    { id: 1, name: "Chicken Gyro Over Rice", price: 11.99, category: "Platters", image: "chicken-over-rice" },
-    { id: 2, name: "Lamb Gyro Over Rice", price: 11.99, category: "Platters", image: "lamb-over-rice" },
-    { id: 3, name: "Combo (Chicken And Lamb)", price: 11.97, category: "Platters", image: "combo-over-rice" },
-    { id: 4, name: "Falafel Over Rice", price: 11.99, category: "Platters", image: "falafel-over-rice" },
+    { id: 1, name: "Chicken Gyro Over Rice", price: 11.99, category: "Platters", image: "chicken-over-rice", desc: "Grilled chicken over seasoned rice with salad and white sauce.", badges: ["Halal"] },
+    { id: 2, name: "Lamb Gyro Over Rice", price: 11.99, category: "Platters", image: "lamb-over-rice", desc: "Grilled lamb over seasoned rice with salad and white sauce.", badges: ["Halal"] },
+    { id: 3, name: "Combo (Chicken And Lamb)", price: 11.97, category: "Platters", image: "combo-over-rice", desc: "Chicken and lamb over seasoned rice with salad and white sauce.", badges: ["Halal"] },
+    { id: 4, name: "Falafel Over Rice", price: 11.99, category: "Platters", image: "falafel-over-rice", desc: "Crispy falafel over seasoned rice with salad and tahini.", badges: ["Veg"] },
 
     // GYROS
-    { id: 5, name: "Chicken Gyro", price: 9.99, category: "Gyros", image: "chicken-gyro" },
-    { id: 6, name: "Lamb Gyro", price: 9.99, category: "Gyros", image: "lamb-gyro" },
-    { id: 7, name: "Munchies Special Falafel Gyro", price: 9.99, category: "Gyros", image: "falafel-gyro" },
+    { id: 5, name: "Chicken Gyro", price: 9.99, category: "Gyros", image: "chicken-gyro", desc: "Grilled chicken wrapped in warm pita with salad and sauce.", badges: ["Halal"] },
+    { id: 6, name: "Lamb Gyro", price: 9.99, category: "Gyros", image: "lamb-gyro", desc: "Grilled lamb wrapped in warm pita with salad and sauce.", badges: ["Halal"] },
+    { id: 7, name: "Munchies Special Falafel Gyro", price: 9.99, category: "Gyros", image: "falafel-gyro", desc: "Crispy falafel wrapped in warm pita with salad and sauce.", badges: ["Veg"] },
 
     // FILL A PITA
-    { id: 8, name: "Munchies Special Falafel Pita", price: 9.99, category: "Fill a Pita", image: "falafel-pita" },
-    { id: 9, name: "Munchies Special Lamb Pita", price: 9.99, category: "Fill a Pita", image: "lamb-pita" },
+    { id: 8, name: "Munchies Special Falafel Pita", price: 9.99, category: "Fill a Pita", image: "falafel-pita", desc: "Crispy falafel in a warm pita with salad and sauce.", badges: ["Veg"] },
+    { id: 9, name: "Munchies Special Lamb Pita", price: 9.99, category: "Fill a Pita", image: "lamb-pita", desc: "Grilled lamb in a warm pita with salad and sauce.", badges: ["Halal"] },
 
     // HANDHELDS
-    { id: 10, name: "South Side Handheld", price: 10.00, category: "Handhelds", image: "south-side-handheld" },
-    { id: 11, name: "Cali Style Handheld", price: 10.00, category: "Handhelds", image: "cali-handheld" },
-    { id: 12, name: "USA Handhelds", price: 10.00, category: "Handhelds", image: "usa-handheld" },
-    { id: 13, name: "The Warrior Handheld", price: 10.00, category: "Handhelds", image: "warrior-handheld" },
-    { id: 14, name: "The Philly Handheld", price: 10.00, category: "Handhelds", image: "philly-handheld" },
+    { id: 10, name: "South Side Handheld", price: 10.00, category: "Handhelds", image: "south-side-handheld", desc: "Our South Side handheld, grilled and served warm.", badges: [] },
+    { id: 11, name: "Cali Style Handheld", price: 10.00, category: "Handhelds", image: "cali-handheld", desc: "California-style handheld, grilled and served warm.", badges: [] },
+    { id: 12, name: "USA Handhelds", price: 10.00, category: "Handhelds", image: "usa-handheld", desc: "Classic American-style handheld, grilled and served warm.", badges: [] },
+    { id: 13, name: "The Warrior Handheld", price: 10.00, category: "Handhelds", image: "warrior-handheld", desc: "A big, bold handheld, grilled and served warm.", badges: [] },
+    { id: 14, name: "The Philly Handheld", price: 10.00, category: "Handhelds", image: "philly-handheld", desc: "Philly-style handheld, grilled and served warm.", badges: [] },
 
     // BREAKFAST
-    { id: 15, name: "Bacon And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "bacon-egg-sandwich" },
-    { id: 16, name: "Sausage And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "sausage-egg-sandwich" },
-    { id: 17, name: "Egg And Cheese Sandwich", price: 4.50, category: "Breakfast Sandwiches", image: "egg-cheese-sandwich" },
+    { id: 15, name: "Bacon And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "bacon-egg-sandwich", desc: "Bacon and egg on toasted bread, made to order.", badges: [] },
+    { id: 16, name: "Sausage And Egg Sandwich", price: 5.00, category: "Breakfast Sandwiches", image: "sausage-egg-sandwich", desc: "Sausage and egg on toasted bread, made to order.", badges: [] },
+    { id: 17, name: "Egg And Cheese Sandwich", price: 4.50, category: "Breakfast Sandwiches", image: "egg-cheese-sandwich", desc: "Egg and melted cheese on toasted bread, made to order.", badges: ["Veg"] },
 
     // APPETIZERS
-    { id: 18, name: "Hummus With Pita Bread With Chicken", price: 8.99, category: "Appetizers", image: "hummus-pita-chicken" },
-    { id: 19, name: "Hummus With Pita Chips With Chicken", price: 8.99, category: "Appetizers", image: "hummus-chips-chicken" },
-    { id: 20, name: "Hummus With Pita Bread", price: 6.49, category: "Appetizers", image: "hummus-pita" },
-    { id: 21, name: "Grape Leaves", price: 3.99, category: "Appetizers", image: "grape-leaves" },
-    { id: 22, name: "Falafel", price: 3.99, category: "Appetizers", image: "falafel-plate" },
+    { id: 18, name: "Hummus With Pita Bread With Chicken", price: 8.99, category: "Appetizers", image: "hummus-pita-chicken", desc: "Creamy hummus with warm pita bread and grilled chicken.", badges: ["Halal"] },
+    { id: 19, name: "Hummus With Pita Chips With Chicken", price: 8.99, category: "Appetizers", image: "hummus-chips-chicken", desc: "Creamy hummus with crispy pita chips and grilled chicken.", badges: ["Halal"] },
+    { id: 20, name: "Hummus With Pita Bread", price: 6.49, category: "Appetizers", image: "hummus-pita", desc: "Creamy hummus with warm pita bread.", badges: ["Veg"] },
+    { id: 21, name: "Grape Leaves", price: 3.99, category: "Appetizers", image: "grape-leaves", desc: "Stuffed grape leaves, a light appetizer.", badges: ["Veg"] },
+    { id: 22, name: "Falafel", price: 3.99, category: "Appetizers", image: "falafel-plate", desc: "Crispy falafel, golden outside and soft inside.", badges: ["Veg"] },
 
     // SALADS
-    { id: 23, name: "Fattoush Salad", price: 8.99, category: "Munchies Special Salads", image: "fattoush-salad" },
-    { id: 24, name: "Tabouli Salad", price: 8.99, category: "Munchies Special Salads", image: "tabouli-salad" },
+    { id: 23, name: "Fattoush Salad", price: 8.99, category: "Munchies Special Salads", image: "fattoush-salad", desc: "Crisp chopped salad with toasted pita and a bright dressing.", badges: ["Veg"] },
+    { id: 24, name: "Tabouli Salad", price: 8.99, category: "Munchies Special Salads", image: "tabouli-salad", desc: "Fresh parsley salad with tomato and cracked wheat.", badges: ["Veg"] },
 
     // SIDES
-    { id: 25, name: "Jamaican Beef Patty", price: 3.89, category: "Just side", image: "jamaican-beef-patty" },
-    { id: 26, name: "Fries", price: 2.89, category: "Just side", image: "fries" },
-    { id: 27, name: "Falafel 1 Piece", price: 0.75, category: "Just side", image: "falafel-1-piece" },
-    { id: 28, name: "Fresh Salad", price: 2.99, category: "Just side", image: "fresh-salad" },
-    { id: 29, name: "Rice", price: 2.99, category: "Just side", image: "plain-rice" },
-    { id: 30, name: "Tahini Sauce", price: 0.65, category: "Just side", image: "tahini-sauce" },
-    { id: 31, name: "Munchies Special White Sauce", price: 0.65, category: "Just side", image: "white-sauce" },
-    { id: 32, name: "Munchies Special Hot Sauce", price: 0.65, category: "Just side", image: "hot-sauce" },
-    { id: 33, name: "Onion Rings", price: 4.49, category: "Just side", image: "onion-rings" },
-{ id: 34, name: "Jojo Potatoes", price: 4.99, category: "Just side", image: "jojo-potatoes", available: false },
+    { id: 25, name: "Jamaican Beef Patty", price: 3.89, category: "Sides", image: "jamaican-beef-patty", desc: "Flaky pastry filled with seasoned Jamaican beef.", badges: ["Halal"] },
+    { id: 26, name: "Fries", price: 2.89, category: "Sides", image: "fries", desc: "Golden fries, crisp and lightly salted.", badges: ["Veg"] },
+    { id: 27, name: "Falafel 1 Piece", price: 0.75, category: "Sides", image: "falafel-1-piece", desc: "One crispy falafel piece — a quick bite.", badges: ["Veg"] },
+    { id: 28, name: "Fresh Salad", price: 2.99, category: "Sides", image: "fresh-salad", desc: "A small fresh salad, crisp and light.", badges: ["Veg"] },
+    { id: 29, name: "Rice", price: 2.99, category: "Sides", image: "plain-rice", desc: "Seasoned rice, served as a side.", badges: ["Veg"] },
+    { id: 30, name: "Tahini Sauce", price: 0.65, category: "Sides", image: "tahini-sauce", desc: "Smooth tahini sauce, made for drizzling.", badges: ["Veg"] },
+    { id: 31, name: "Munchies Special White Sauce", price: 0.65, category: "Sides", image: "white-sauce", desc: "Our signature white sauce, creamy and mild.", badges: ["Veg"] },
+    { id: 32, name: "Munchies Special Hot Sauce", price: 0.65, category: "Sides", image: "hot-sauce", desc: "Spicy hot sauce for an extra kick.", badges: ["Spicy"] },
+    { id: 33, name: "Onion Rings", price: 4.49, category: "Sides", image: "onion-rings", desc: "Crispy golden onion rings.", badges: ["Veg"] },
+{ id: 34, name: "Jojo Potatoes", price: 4.99, category: "Sides", image: "jojo-potatoes", desc: "Crispy potato wedges with herbs.", badges: ["Veg"], available: false },
 
     // DRINKS
-    { id: 35, name: "Soda (Can)", price: 2.49, category: "Drinks", image: "coca-cola" },
-    { id: 36, name: "Water Bottle", price: 1.99, category: "Drinks", image: "water-bottle" },
-    { id: 37, name: "Snapple Apple", price: 2.99, category: "Drinks", image: "snapple-apple" },
+    { id: 35, name: "Soda (Can)", price: 2.49, category: "Drinks", image: "coca-cola", desc: "A chilled can of soda.", badges: [] },
+    { id: 36, name: "Water Bottle", price: 1.99, category: "Drinks", image: "water-bottle", desc: "A chilled bottle of water.", badges: [] },
+    { id: 37, name: "Snapple Apple", price: 2.99, category: "Drinks", image: "snapple-apple", desc: "Snapple Apple, chilled and ready to drink.", badges: [] },
 
     // DESSERTS
-    { id: 38, name: "Cheese Cake", price: 5.99, category: "Desserts", image: "cheese-cake" }
+    { id: 38, name: "Cheese Cake", price: 5.99, category: "Desserts", image: "cheese-cake", desc: "Creamy cheesecake with a sweet topping.", badges: ["Veg"] }
 ];
 
 
@@ -125,7 +125,7 @@ const categories = [
     "Breakfast Sandwiches",
     "Appetizers",
     "Munchies Special Salads",
-    "Just side",
+    "Sides",
     "Drinks",
     "Desserts"
 ];
@@ -168,6 +168,22 @@ categoryFilters.addEventListener("click", event => {
 });
 
 
+
+/* ==========================================
+   BADGES — Halal / Veg / Spicy, from the dish name only.
+   Jojo Potatoes stays unavailable (available: false).
+========================================== */
+
+function badgesFor(item) {
+    const out = (item.badges || []).map(b =>
+        `<span class="menu-badge menu-badge--${b.toLowerCase()}">${b}</span>`
+    );
+    if (item.available === false) {
+        out.push('<span class="menu-badge menu-badge--unavailable">Temporarily unavailable</span>');
+    }
+    return out.join("");
+}
+
 /* ==========================================
    DISPLAY MENU ITEMS
 ========================================== */
@@ -198,7 +214,7 @@ function renderMenu() {
 
     menuGrid.innerHTML = filteredItems.map((item, index) => `
 
-        <article class="menu-card" style="animation-delay:${(index % 6) * 60}ms">
+        <article class="menu-card${item.available === false ? " unavailable" : ""}" style="animation-delay:${(index % 6) * 60}ms">
 
             <div class="menu-card-image">
                 <img
@@ -214,6 +230,10 @@ function renderMenu() {
             <div class="menu-card-content">
 
                 <h3>${item.name}</h3>
+
+                <p class="menu-desc">${item.desc}</p>
+
+                <div class="menu-badges">${badgesFor(item)}</div>
 
                 <div class="menu-card-bottom">
 

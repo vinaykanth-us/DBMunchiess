@@ -20,17 +20,23 @@
 <div class="page-shell">
 
     <header class="navbar container">
-        <a href="index.html" class="logo">DB<span> Munchies</span></a>
+        <a href="index.html" class="logo">DB Mart<span> Munchies</span></a>
 
         <nav class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
             <a href="menu.html" class="active">Menu</a>
             <a href="track-order.html">Track Order</a>
             <a href="index.html#contact">Contact</a>
+            <a href="call.html">Call Us</a>
         </nav>
 
         <div class="nav-actions">
             <button type="button" class="ai-call-btn" onclick="callRestaurant()"><span class="live-dot" aria-hidden="true"></span>Call AI Assistant to Order</button>
+
+            <a href="menu.html" class="nav-order-btn">
+                Order Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
             <button class="menu-cart-btn" id="cartButton">
                 <i class="fa-solid fa-bag-shopping"></i>
@@ -148,7 +154,7 @@
 
     <footer class="footer container" id="contact">
         <div class="footer-brand">
-            <a href="index.html" class="logo">DB<span> Munchies</span></a>
+            <a href="index.html" class="logo">DB Mart<span> Munchies</span></a>
             <p>Freshly grilled. Deliciously served.</p>
         </div>
 
@@ -170,12 +176,13 @@
 
         <div class="copyright">
             © 2026 DB Mart Munchies. All rights reserved.
+            <p class="photo-credit">Photos are illustrations for this demo site — the restaurant's real photos will replace them before launch.</p>
         </div>
     </footer>
 
 </div>
 
-<script src="menu.js?v=8"></script>
+<script src="menu.js?v=9"></script>
 <script>
 function callRestaurant() {
   window.open("https://agent.retellai.com/orb/agent_50154412b141a7c91be232846f?token=e66ca8441852ef5e52f5ec19f13c6981", "_blank");
