@@ -52,7 +52,7 @@ const menuItems = [
     { id: 31, name: "Munchies Special White Sauce", price: 0.65, category: "Just side", image: "sauce" },
     { id: 32, name: "Munchies Special Hot Sauce", price: 0.65, category: "Just side", image: "sauce" },
     { id: 33, name: "Onion Rings", price: 4.49, category: "Just side", image: "onion-rings" },
-{ id: 34, name: "Jojo Potatoes", price: 4.99, category: "Just side", image: "fries", available: false },
+{ id: 34, name: "Jojo Potatoes", price: 4.99, category: "Just side", image: "jojo-potatoes", available: false },
 
     // DRINKS
     { id: 35, name: "Soda (Can)", price: 2.49, category: "Drinks", image: "coca-cola" },
