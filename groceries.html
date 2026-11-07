@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groceries | DB Mart Munchies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="premium.css?v=2">
+    <style>
+      .grocery-section { margin-top: 28px; }
+      .grocery-section h3 { font-size: 22px; margin-bottom: 4px; }
+      .grocery-section p { color: var(--ink-soft); font-size: 14px; }
+      .grocery-list { list-style: none; padding: 0; margin-top: 14px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      @media (max-width: 640px) { .grocery-list { grid-template-columns: 1fr; } }
+      .grocery-list li { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow-sm); font-size: 14px; line-height: 1.5; }
+      .grocery-list li strong { display: block; font-size: 15px; margin-bottom: 6px; }
+      .grocery-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .grocery-cats span { padding: 7px 13px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--gold-pale); border: 1px solid #eadf9a; }
+      .promo-banner { margin-top: 22px; padding: 22px 26px; border-radius: 16px; background: #e6f7f5; border: 1px solid #bfe8e3; }
+      .promo-banner strong { display: block; font-size: 22px; line-height: 1.35; color: #0f3d3a; }
+      .promo-banner span { display: block; margin-top: 6px; font-size: 14px; color: #0f3d3a; }
+    </style>
+</head>
+<body>
+
+<div class="page-shell">
+
+    <header class="navbar container">
+        <a href="index.html" class="logo">DB Mart<span> Munchies</span></a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="groceries.html" class="active">Groceries</a>
+            <a href="track-order.html">Track Order</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="call.html">Call Us</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button type="button" class="ai-call-btn" onclick="callRestaurant()"><span class="live-dot" aria-hidden="true"></span>Call AI Assistant to Order</button>
+
+            <a href="menu.html" class="nav-order-btn">
+                Order Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- GROCERIES HERO -->
+        <section class="menu-hero container">
+            <div class="menu-hero-content reveal">
+                <span class="eyebrow">ANJ DB MART • 894 MAPLE AVE</span>
+                <h1>Groceries</h1>
+                <p>
+                    Everyday groceries from the store at 894 Maple Ave, Hartford —
+                    delivered by DoorDash.
+                </p>
+                <div class="menu-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Groceries</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section container">
+
+            <div class="menu-heading">
+                <div>
+                    <span class="eyebrow">FROM THE STORE</span>
+                    <h2 class="section-title">Groceries at DB Mart</h2>
+                    <p>65 items from the ANJ DB Mart listing on DoorDash. Prices are not shown on that listing as read — ask in store or check DoorDash for the current price.</p>
+                </div>
+            </div>
+
+            <div class="promo-banner">
+                <strong>Get $3 off any order of $20 or more from this store.</strong>
+                <span>As shown on DoorDash. $0.00 delivery fee, first order.</span>
+            </div>
+
+            <div class="grocery-section">
+                <h3>More in store</h3>
+                <p>These departments are listed on DoorDash for this store. The items below are the featured items shown on the listing.</p>
+                <div class="grocery-cats">
+                    <span>Dairy &amp; Eggs</span><span>Bakery</span><span>Pantry</span><span>Drinks</span><span>Snacks</span><span>Candy</span><span>Beauty</span><span>Baby &amp; Child</span><span>Household</span><span>Personal Care</span><span>Pet Care</span><span>Medicine</span><span>Outdoor</span>
+                </div>
+            </div>
+
+            <div class="grocery-section">
+                <h3>Soda</h3>
+                <p>10 items</p>
+                <ul class="grocery-list">
+                    <li><strong>Coke Original Cola Soda Can (16 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Canada Dry Caffeine Free Ginger Ale Soda Bottle (20 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Fanta Pineapple Soda (2 L)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Sprite Lemon Lime Soda Can (12 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Fanta Orange Soda Bottle (2 L)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Crush Grape Soda Can (16 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Coke Original Cola Soda Bottle (2 L)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Pepsi Cola Soda Bottle (2 L)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Canada Dry Caffeine Free Ginger Ale Can (16 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Canada Dry Blackberry Ginger Ale Soda Bottle (20 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                </ul>
+            </div>
+
+            <div class="grocery-section">
+                <h3>Chips</h3>
+                <p>10 items</p>
+                <ul class="grocery-list">
+                    <li><strong>Takis Fuego Hot Chili Pepper &amp; Lime Flavored Extreme Rolled Tortilla Chips Sharing Size (9.9 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Takis Fuego Stix Hot Chili Pepper &amp; Lime Corn Snack Sticks (4 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Takis Waves Extreme Blue Heat Hot Chili Pepper Flavored Potato Chips (2.5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>PopCorners Kettle Corn Sweet &amp; Salty Popped-Corn Snacks (3 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Takis Kettlez Habanero Fury Flavored Potato Chips (2.5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Blue Takis Blue Heat Hot Chili Pepper Extreme Spicy Rolled Tortilla Chips Bag Sharing Size (9.9 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Fritos Honey BBQ Corn Chips (3.49 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Doritos Dinamita Rolled Chile Limon Flavored Tortilla Chips (4 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Pringles BBQ Flavored Grab N Go Potato Chips Can (1.4 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Doritos Spicy Nacho Flavored Tortilla Chips (2.62 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                </ul>
+            </div>
+
+            <div class="grocery-section">
+                <h3>Juice</h3>
+                <p>10 items</p>
+                <ul class="grocery-list">
+                    <li><strong>AriZona Watermelon Vitamin C Fortified Juice Cocktail Can (22 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Calypso Ocean Blue Lemonade (16 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Dole 100% Pineapple Juice Can (6 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Tropicana Cranberry Flavored Juice Blend Bottle (15.2 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Brisk Pink Lemonade Juice Drink Bottle (1 L)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Snapple Apple Juice Drink (16 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Tropicana Pure Premium No Pulp 100% Orange Juice (12 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>AriZona All Natural Kiwi &amp; Strawberry Fruit Juice Cocktail Can (23 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Vinut Red Grape Juice (16.9 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>AriZona Fruit Punch Juice Cocktail Can (23 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                </ul>
+            </div>
+
+            <div class="grocery-section">
+                <h3>Gummy</h3>
+                <p>10 items</p>
+                <ul class="grocery-list">
+                    <li><strong>Sour Power Green Apple Gummy Straws Candy (9 ct)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Life Savers 5 Flavors Gummies Soft Candy Share Size (4.2 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Haribo Wild Berry Gold Bears Share Size Gummies (4 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Life Savers Wild Berries Gummies Candy Share Size (4.2 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Jolly Rancher Sour Assorted Original Fruit Flavor Gummies Bag King Size (3.87 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Starburst Original Gummies Candy Bag (5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Haribo Frogs Gummi Candy (5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Nerds Very Berry Gummy Clusters Candy (5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Swedish Fish Red Soft &amp; Chewy Candies Peg Bag (8 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Swedish Fish Soft &amp; Chewy Tropical Mini Candy (8 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                </ul>
+            </div>
+
+            <div class="grocery-section">
+                <h3>Cleaning</h3>
+                <p>8 items</p>
+                <ul class="grocery-list">
+                    <li><strong>Clorox Bleach Free Fresh Scent and Crisp Lemon Scent Disinfecting Wipes Variety Pack (85 ct x 5 ct)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Pine-Sol Lavender Multi-Surface Cleaner (48 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Clorox Disinfecting Bleach (11 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Liquid Plumr Pro-Strength Clog Destroyer Drain Cleaner (32 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Fabuloso Antibacterial Sparkling Citrus Multi-Purpose Cleaner (16.9 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Bab-O Cleanser (21 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Pine-Sol Mandarin Sunrise Multi-Surface Cleaner (828 ml)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Pine-Sol All Purpose Lavender Clean Multi-Surface Cleaner (28 fl oz)</strong><span class="snack-tag">Ask in store</span></li>
+                </ul>
+            </div>
+
+            <div class="grocery-section">
+                <h3>Snack mixes</h3>
+                <p>10 items</p>
+                <ul class="grocery-list">
+                    <li><strong>Funyuns Onion Flavored Regular Rings (2 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Takis Kettlez Mild Jalapeno Potato Chips (2.5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Takis Fuego Mix Extreme Hot Chili Pepper &amp; Lime Flavored Snack Bag Sharing Size (6.5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Combos Stuffed Snacks Baked Ranch Dip Pretzels Bag (6.3 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Fritos Twists Honey BBQ Flavored Corn Snacks (9.24 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Planters Nuts &amp; Chocolate Trail Mix (6 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Corn Nuts Ranch Crunchy Corn Kernels (1.7 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Cheetos Flamin Hot Crunchy Cheese Flavored Snacks (3.25 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Takis Fuego Duos Hot Chili Pepper, Lime &amp; Watermelon Snack Mix (3 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Chester's Fries Flamin' Hot Flavored Corn Snacks (3.62 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                </ul>
+            </div>
+
+            <div class="grocery-section">
+                <h3>Sweets</h3>
+                <p>7 items</p>
+                <ul class="grocery-list">
+                    <li><strong>Fruit Gushers Super Sour Berry Snacks (4.25 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Otis Spunkmeyer Chocolate &amp; Chocolate Chip Muffin (4 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Otis Spunkmeyer Banana Nut Muffin (4 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Fruit Gushers Tropical Fruit Flavored Snacks (4.25 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Hostess Donettes Powdered Mini Donuts (1.5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Fruit Gushers Strawberry Peach, Orange Cherry, Raspberry Lemonade Fruit Flavored Snacks (4.25 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                    <li><strong>Hostess Donettes Frosted Mini Donuts (1.5 oz)</strong><span class="snack-tag">Ask in store</span></li>
+                </ul>
+            </div>
+
+            <p class="deals-source">Items from ANJ DB Mart, 894 Maple Ave, Hartford, CT, as listed on DoorDash (rating 3.5/5, 75 reviews on that listing). This is the store's grocery listing, separate from the DB Mart Munchies restaurant menu of 38 dishes.</p>
+
+        </section>
+
+    </main>
+
+    <footer class="footer container" id="contact">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">DB Mart<span> Munchies</span></a>
+            <p>Freshly grilled. Deliciously served.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="groceries.html">Groceries</a>
+            <a href="track-order.html">Track Order</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contact</h4>
+            <p>894 Maple Ave</p>
+            <p>Hartford, CT 06114</p>
+            <p><a href="tel:+18609560415">(860) 956-0415</a></p>
+            <p>Mon–Wed 5 AM–2 AM · Thu 5 AM–midnight · Fri &amp; Sat open 24 hours · Sun 5 AM–midnight</p>
+            <p><a href="https://www.instagram.com/dbmartmunchiesgrill/" target="_blank" rel="noopener">Instagram — @dbmartmunchiesgrill</a></p>
+        </div>
+
+        <div class="copyright">
+            © 2026 DB Mart Munchies. All rights reserved.
+            <p class="photo-credit">Photos are illustrations for this demo site — the restaurant's real photos will replace them before launch.</p>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+function callRestaurant() {
+  window.open("https://agent.retellai.com/orb/agent_50154412b141a7c91be232846f?token=e66ca8441852ef5e52f5ec19f13c6981", "_blank");
+}
+</script>
+<script src="premium.js" defer></script>
+</body>
+</html>
