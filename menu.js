@@ -80,7 +80,7 @@ const foodImages = {
     snack: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=85",
     fries: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=85",
     sauce: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=600&q=85",
-    drink: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=85",
+    drink: "assets/images/menu/drinks.webp?v=1",
     dessert: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&q=85"
 };
 
