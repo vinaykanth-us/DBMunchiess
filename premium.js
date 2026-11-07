@@ -41,6 +41,7 @@
     var badge = document.createElement("span");
     badge.className = "today-badge";
     badge.textContent = "TODAY'S DEAL";
-    today.prepend(badge);
+    var dayLabel = today.querySelector(".deal-day");
+    if (dayLabel) { today.insertBefore(badge, dayLabel); } else { today.prepend(badge); }
   }
 })();

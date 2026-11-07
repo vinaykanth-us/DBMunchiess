@@ -72,7 +72,7 @@ const menuItems = [
 const foodImages = {
     rice: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=85",
     gyro: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600&q=85",
-    falafel: "assets/images/menu/falafel.webp",
+    falafel: "assets/images/menu/falafel.webp?v=1",
     burger: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=85",
     sandwich: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=85",
     hummus: "https://images.unsplash.com/photo-1577906096429-f73c2c312435?w=600&q=85",

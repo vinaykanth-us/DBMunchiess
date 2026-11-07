@@ -157,8 +157,9 @@ img[data-placeholder="true"] { filter: saturate(.95); }
 /* ---------- Cuisines + hours band ---------- */
 .info-band {
   width: min(1080px, 86%); margin: 0 auto; padding: 34px 0 10px;
-  display: grid; grid-template-columns: 1.15fr .85fr; gap: 20px; align-items: stretch;
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 20px; align-items: start;
 }
+.today-badge { position: relative; z-index: 2; margin-bottom: 4px; }
 .info-card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
   padding: 26px 28px; box-shadow: var(--shadow-sm);
