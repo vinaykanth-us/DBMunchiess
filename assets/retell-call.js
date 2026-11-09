@@ -68,7 +68,7 @@ async function startInPageCall() {
                     retellCall = null;
                     setButtons("Call AI Assistant to Order", false);
                     setStatus("Couldn't connect");
-                    alert("The AI assistant couldn't connect. Please allow microphone access and try again, or call (860) 956-0415.");
+                    alert("The AI assistant couldn't connect. Please allow microphone access and try again, or call (860) 555-0100.");
                 }
             }
         });

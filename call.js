@@ -26,7 +26,7 @@ if (menuToggle && navLinks) {
 
 // Confirm call action before opening the phone app
 
-document.querySelectorAll('a[href="tel:+18609560415"]').forEach(link => {
+document.querySelectorAll('a[href="tel:+18605550100"]').forEach(link => {
 
     link.addEventListener("click", () => {
 
