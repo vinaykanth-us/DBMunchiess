@@ -287,7 +287,7 @@ img[data-placeholder="true"] { filter: saturate(.95); }
 }
 .phone-btn:hover { transform: translateY(-2px); background: #f7f2ea; }
 
-/* ---------- Footer: aligned grid, Instagram, hours ---------- */
+/* ---------- Footer: aligned grid, hours ---------- */
 .footer {
   display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 28px;
   align-items: start; padding-top: 44px;
