@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="stylesheet" href="premium.css?v=8">
 <link rel="stylesheet" href="home-polish.css?v=2">
+<link rel="stylesheet" href="order.css?v=1">
 </head>
 
 <body>
@@ -394,6 +395,7 @@
       <h3>Bezawada Rajugari Kodi Pulao</h3>
       <p class="deal-note">Spicy Andhra chicken pulao — fragrant rice, tender chicken, fried onions and green chillies.</p>
       <p class="deal-price">$9.99</p>
+      <div class="featured-order" data-featured="101"></div>
     </article>
     <article class="deal-card">
       <img class="deal-img" src="assets/images/featured/chicken-fry-piece-biryani.webp" alt="Chicken Fry Piece Biryani" loading="lazy">
@@ -401,6 +403,7 @@
       <h3>Chicken Fry Piece Biryani</h3>
       <p class="deal-note">Fragrant basmati biryani topped with crispy fried chicken pieces, fried onions and mint.</p>
       <p class="deal-price">$9.99</p>
+      <div class="featured-order" data-featured="102"></div>
     </article>
   </div>
   <div class="combo-offer">
@@ -410,6 +413,11 @@
       <h3>Indian Combo — pick one, plus sweet &amp; soda</h3>
       <p class="deal-note">Your choice of Bezawada Rajugari Kodi Pulao <strong>or</strong> Chicken Fry Piece Biryani, plus Dessert and a Soda Can.</p>
       <p class="deal-price">$12.99</p>
+      <div class="combo-choice" role="group" aria-label="Pick your Indian Combo dish">
+        <button type="button" class="combo-choice-btn active" data-combo-choice="103">Kodi Pulao</button>
+        <button type="button" class="combo-choice-btn" data-combo-choice="104">Chicken Fry Piece Biryani</button>
+      </div>
+      <div class="featured-order" data-featured="combo"></div>
     </article>
   </div>
 </section>
@@ -576,6 +584,8 @@
 
 <script src="script.js"></script>
 <script src="assets/retell-call.js?v=2"></script>
+<script src="cart.js?v=1"></script>
+<script src="featured.js?v=1"></script>
 
 <script src="premium.js" defer></script>
 <script src="home-polish.js?v=2" defer></script>

@@ -1,22 +1,27 @@
 
 /* ==========================================
    MUNCHIES ON MAPLE - CHECKOUT
+   DEMO ONLY — no real orders, no payments,
+   no card details. The demo order is saved in
+   the browser's localStorage only.
 ========================================== */
 
 const orderForm = document.getElementById("orderForm");
 
 const checkoutItems = document.getElementById("checkoutItems");
 
-const savedCart = JSON.parse(
-    localStorage.getItem("dbmunchies_cart") || "[]"
-);
+/* Cart comes from the shared MunchiesCart (localStorage),
+   so quantities changed here stay in sync with menu/home. */
+let cart = MunchiesCart.getCart();
 
 
 /* DISPLAY ORDER SUMMARY */
 
 function displayOrderSummary() {
 
-    if (savedCart.length === 0) {
+    cart = MunchiesCart.getCart();
+
+    if (cart.length === 0) {
 
         checkoutItems.innerHTML = `
             <p class="empty-cart">
@@ -26,21 +31,29 @@ function displayOrderSummary() {
         `;
 
         orderForm.querySelector("button").disabled = true;
+
+        document.getElementById("subtotal").textContent = "$0.00";
+        document.getElementById("grandTotal").textContent = "$0.00";
         return;
     }
 
-    checkoutItems.innerHTML = savedCart.map(item => `
+    orderForm.querySelector("button").disabled = false;
+
+    checkoutItems.innerHTML = cart.map(item => `
 
         <div class="checkout-item">
 
             <div>
                 <h4>${item.name}</h4>
-                <p>Quantity: ${item.quantity}</p>
+                <p>$${item.price.toFixed(2)} each</p>
             </div>
 
-            <strong>
-                $${(item.price * item.quantity).toFixed(2)}
-            </strong>
+            <div class="checkout-item__side">
+                ${MunchiesCart.stepperHTML(item.id, item.quantity)}
+                <strong>
+                    $${(item.price * item.quantity).toFixed(2)}
+                </strong>
+            </div>
 
         </div>
 
@@ -56,12 +69,16 @@ function displayOrderSummary() {
 
 }
 
+/* Re-render when a quantity changes (stepper clicks are
+   handled by the shared cart.js delegation). */
+MunchiesCart.subscribe(displayOrderSummary);
+
 
 /* CALCULATE TOTAL */
 
 function calculateTotal() {
 
-    return savedCart.reduce((sum, item) => {
+    return MunchiesCart.getCart().reduce((sum, item) => {
 
         return sum + (item.price * item.quantity);
 
@@ -96,7 +113,9 @@ orderForm.addEventListener("submit", event => {
 
     event.preventDefault();
 
-    if (savedCart.length === 0) {
+    cart = MunchiesCart.getCart();
+
+    if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
@@ -117,7 +136,7 @@ orderForm.addEventListener("submit", event => {
         address: customer.address,
         notes: customer.notes,
 
-        items: savedCart,
+        items: cart,
 
         total: calculateTotal(),
 
@@ -147,10 +166,30 @@ orderForm.addEventListener("submit", event => {
         JSON.stringify(order)
     );
 
-    localStorage.removeItem("dbmunchies_cart");
+    MunchiesCart.clearCart();
 
 
     /* SHOW SUCCESS MESSAGE */
+
+    document.getElementById("orderSuccessItems").innerHTML = order.items.map(item => `
+
+        <div class="checkout-item">
+
+            <div>
+                <h4>${item.name}</h4>
+                <p>${item.quantity} &times; $${item.price.toFixed(2)}</p>
+            </div>
+
+            <strong>
+                $${(item.price * item.quantity).toFixed(2)}
+            </strong>
+
+        </div>
+
+    `).join("");
+
+    document.getElementById("orderSuccessTotal").textContent =
+        `$${order.total.toFixed(2)}`;
 
     document.querySelector(".checkout-layout").style.display = "none";
 

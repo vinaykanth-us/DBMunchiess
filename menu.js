@@ -131,7 +131,8 @@ const categories = [
 ];
 
 let activeCategory = "All";
-let cart = [];
+/* Cart state lives in the shared MunchiesCart module (cart.js)
+   and is persisted in localStorage — no in-memory copy here. */
 
 const menuGrid = document.getElementById("menuGrid");
 const categoryFilters = document.getElementById("categoryFilters");
@@ -182,6 +183,39 @@ function badgesFor(item) {
         out.push('<span class="menu-badge menu-badge--unavailable">Temporarily unavailable</span>');
     }
     return out.join("");
+}
+
+/* ==========================================
+   CARD CONTROL — Add button, or the screenshot-style
+   quantity stepper (trash | number | +) once added.
+   Jojo Potatoes stays unorderable (available: false).
+========================================== */
+
+function cardControlHTML(item) {
+
+    if (item.available === false) {
+        return '<button class="menu-add-btn menu-add-btn--unavailable" disabled ' +
+            'aria-label="' + item.name + ' is temporarily unavailable">Unavailable</button>';
+    }
+
+    var qty = MunchiesCart.qtyOf(item.id);
+
+    if (qty > 0) return MunchiesCart.stepperHTML(item.id, qty);
+
+    return MunchiesCart.addButtonHTML(item.id, item.name);
+
+}
+
+function updateCardControl(id) {
+
+    var slot = document.querySelector('[data-control-for="' + id + '"]');
+
+    if (!slot) return;
+
+    var item = menuItems.find(function (entry) { return entry.id === id; });
+
+    if (item) slot.innerHTML = cardControlHTML(item);
+
 }
 
 /* ==========================================
@@ -241,14 +275,9 @@ function renderMenu() {
                         $${item.price.toFixed(2)}
                     </span>
 
-                    <button
-  class="menu-add-btn"
-  data-id="${item.id}"
-  aria-label="Add ${item.name} to cart"
-  ${item.available === false ? 'disabled' : ''}>
-  ${item.available === false ? 'Unavailable' : '<i class="fa-solid fa-plus"></i>'}
-</button>
-
+                    <span class="menu-card-control" data-control-for="${item.id}">
+                        ${cardControlHTML(item)}
+                    </span>
 
                 </div>
 
@@ -279,164 +308,68 @@ document.getElementById("clearSearch").addEventListener("click", () => {
 
 
 /* ==========================================
-   ADD ITEMS TO CART
+   ADD / STEPPER CLICKS
+   Handled by the shared cart.js delegation
+   ([data-cart-action] buttons) — the stepper on each
+   card updates in place via the subscription below.
 ========================================== */
-
-menuGrid.addEventListener("click", event => {
-
-    const button = event.target.closest(".menu-add-btn");
-
-    if (!button) return;
-
-    const id = Number(button.dataset.id);
-
-    const selectedItem = menuItems.find(item => item.id === id);
-
-    const existingItem = cart.find(item => item.id === id);
-
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({
-            ...selectedItem,
-            quantity: 1
-        });
-    }
-
-    updateCart();
-
-    button.innerHTML = '<i class="fa-solid fa-check"></i>';
-
-    setTimeout(() => {
-        button.innerHTML = '<i class="fa-solid fa-plus"></i>';
-    }, 700);
-
-});
 
 
 /* ==========================================
-   CART CALCULATIONS
+   CART TOTALS + DRAWER
+   State lives in MunchiesCart (localStorage);
+   the drawer itself is rendered by cart.js.
 ========================================== */
 
 function updateCart() {
 
-    const totalQuantity = cart.reduce(
-        (sum, item) => sum + item.quantity, 0
-    );
+    const sum = MunchiesCart.totals();
 
-    const totalPrice = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity, 0
-    );
-
-    document.getElementById("cartCount").textContent = totalQuantity;
+    document.getElementById("cartCount").textContent = sum.count;
 
     document.getElementById("cartTotal").textContent =
-        `$${totalPrice.toFixed(2)}`;
+        `$${sum.total.toFixed(2)}`;
 
-    const cartItems = document.getElementById("cartItems");
-
-    if (cart.length === 0) {
-        cartItems.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
-        return;
-    }
-
-    cartItems.innerHTML = cart.map(item => `
-
-        <div class="cart-item">
-
-            <div>
-                <h4>${item.name}</h4>
-                <p>$${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-
-            <div class="cart-quantity">
-
-                <button data-action="decrease" data-id="${item.id}">−</button>
-
-                <span>${item.quantity}</span>
-
-                <button data-action="increase" data-id="${item.id}">+</button>
-
-            </div>
-
-        </div>
-
-    `).join("");
+    MunchiesCart.renderDrawer();
 
 }
 
 
-/* ==========================================
-   CHANGE CART QUANTITY
-========================================== */
+/* Keep card steppers in sync when the cart changes
+   (e.g. a quantity changed from the cart drawer). */
 
-document.getElementById("cartItems").addEventListener("click", event => {
-
-    const button = event.target.closest("button[data-action]");
-
-    if (!button) return;
-
-    const id = Number(button.dataset.id);
-
-    const item = cart.find(product => product.id === id);
-
-    if (!item) return;
-
-    if (button.dataset.action === "increase") {
-        item.quantity++;
-    }
-
-    if (button.dataset.action === "decrease") {
-        item.quantity--;
-
-        if (item.quantity <= 0) {
-            cart = cart.filter(product => product.id !== id);
-        }
-    }
+MunchiesCart.subscribe(function (changedId) {
 
     updateCart();
+
+    if (changedId) updateCardControl(changedId);
 
 });
 
 
 /* ==========================================
    CART PANEL
+   The nav bag button opens the drawer via cart.js;
+   close buttons are wired here (drawer is in the markup).
 ========================================== */
 
-const cartPanel = document.getElementById("cartPanel");
-const cartOverlay = document.getElementById("cartOverlay");
+document.getElementById("closeCart").addEventListener("click", MunchiesCart.closeCart);
 
-function openCart() {
-    cartPanel.classList.add("open");
-    cartOverlay.classList.add("open");
-}
-
-function closeCart() {
-    cartPanel.classList.remove("open");
-    cartOverlay.classList.remove("open");
-}
-
-document.getElementById("cartButton").addEventListener("click", openCart);
-
-document.getElementById("closeCart").addEventListener("click", closeCart);
-
-cartOverlay.addEventListener("click", closeCart);
+document.getElementById("cartOverlay").addEventListener("click", MunchiesCart.closeCart);
 
 
 /* ==========================================
-   CHECKOUT - NEXT DEVELOPMENT STEP
+   CHECKOUT
+   Cart is already in localStorage — just go.
 ========================================== */
 
 
 document.getElementById("checkoutButton").addEventListener("click", () => {
 
-    if (cart.length === 0) {
+    if (MunchiesCart.totals().count === 0) {
         alert("Please add items to your cart first.");
         return;
     }
-
-    // Preserve cart when navigating to checkout
-    localStorage.setItem("dbmunchies_cart", JSON.stringify(cart));
 
     window.location.href = "checkout.html";
 

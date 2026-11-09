@@ -1,0 +1,437 @@
+/* ============================================================
+   MUNCHIES ON MAPLE — DEMO ORDERING SYSTEM (order.css v1)
+   Quantity stepper styled on the user's screenshot:
+   a white pill with a trash icon, the quantity, and a +.
+   Also: floating cart button, cart drawer (so the drawer
+   works on pages that don't load menu.css), featured-dish
+   controls, checkout steppers and the demo banner.
+   ============================================================ */
+
+/* ---------- QUANTITY STEPPER (screenshot style) ---------- */
+
+.qty-stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    height: 46px;
+    padding: 0 8px;
+    background: #ffffff;
+    border: 1px solid #ece4dc;
+    border-radius: 999px;
+    box-shadow: 0 8px 22px rgba(43, 26, 51, .12);
+}
+
+.qty-stepper--sm {
+    height: 40px;
+    padding: 0 6px;
+    box-shadow: 0 5px 16px rgba(43, 26, 51, .10);
+}
+
+.qty-stepper__btn {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--dark);
+    font-size: 15px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+
+.qty-stepper--sm .qty-stepper__btn {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+}
+
+.qty-stepper__btn:hover {
+    background: #fff0e5;
+    color: var(--orange-dark);
+}
+
+.qty-stepper__btn:active {
+    transform: scale(.92);
+}
+
+.qty-stepper__btn--dec {
+    font-size: 14px;
+}
+
+.qty-stepper--sm .qty-stepper__btn--dec {
+    font-size: 12px;
+}
+
+.qty-stepper__num {
+    min-width: 28px;
+    text-align: center;
+    font-family: var(--body);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1;
+}
+
+.qty-stepper--sm .qty-stepper__num {
+    min-width: 24px;
+    font-size: 14px;
+}
+
+/* Menu-card control slot: Add button or stepper, same spot. */
+.menu-card-control {
+    display: inline-flex;
+    align-items: center;
+}
+
+.menu-card-control .qty-stepper {
+    height: 42px;
+}
+
+/* Unavailable dish (Jojo Potatoes): small grey pill, not a round button. */
+.menu-add-btn--unavailable {
+    width: auto;
+    height: 35px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: #f0ebe6;
+    color: #89817d;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: not-allowed;
+}
+
+.menu-add-btn--unavailable:hover {
+    background: #f0ebe6;
+    transform: none;
+}
+
+/* ---------- FLOATING CART BUTTON ---------- */
+
+.floating-cart-btn {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 20px 13px 18px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--orange);
+    color: #ffffff;
+    font-family: var(--body);
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 14px 34px rgba(231, 101, 46, .42);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: opacity .3s ease, visibility .3s ease, transform .3s ease, background .2s ease;
+}
+
+.floating-cart-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.floating-cart-btn:hover {
+    background: var(--orange-dark);
+}
+
+.floating-cart-btn > i {
+    font-size: 17px;
+}
+
+.floating-cart-btn__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.floating-cart-btn__text strong {
+    font-weight: 700;
+}
+
+.floating-cart-btn__text span {
+    font-size: 11px;
+    opacity: .92;
+}
+
+/* ---------- CART DRAWER (also used on pages without menu.css) ---------- */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+}
+
+.cart-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-panel {
+    position: fixed;
+    z-index: 201;
+    top: 0;
+    right: -450px;
+    width: min(420px, 100%);
+    height: 100vh;
+    background: var(--cream);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    transition: right .4s cubic-bezier(.2, .7, .2, 1);
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee5dd;
+}
+
+.cart-header h2 {
+    font-family: var(--heading);
+    font-weight: 500;
+}
+
+.cart-header button {
+    background: transparent;
+    font-size: 20px;
+    color: var(--dark);
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 20px;
+}
+
+.empty-cart {
+    color: var(--text);
+    text-align: center;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee5dd;
+}
+
+.cart-item__info h4 {
+    font-family: var(--heading);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.cart-item__info p {
+    color: var(--orange);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.cart-item__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.cart-item__total {
+    font-size: 13px;
+    color: var(--dark);
+}
+
+.cart-footer {
+    border-top: 1px solid #eee5dd;
+    padding-top: 20px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.cart-total strong {
+    color: var(--orange);
+}
+
+.checkout-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.cart-panel .checkout-disclaimer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text);
+    margin: 12px 0 0;
+}
+
+/* ---------- FEATURED DISHES + INDIAN COMBO (home page) ---------- */
+
+.featured-order {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.featured-order .menu-add-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+}
+
+.combo-choice {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.combo-choice-btn {
+    flex: 1;
+    padding: 9px 10px;
+    border: 1px solid #eee5dd;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #77716e;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.combo-choice-btn.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #ffffff;
+}
+
+/* ---------- CHECKOUT ---------- */
+
+.demo-banner {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 0 0 22px;
+    padding: 13px 16px;
+    border: 1px solid #f3ddb0;
+    border-radius: 12px;
+    background: #fff8e6;
+    color: #7a5a12;
+    font-size: 12.5px;
+    line-height: 1.55;
+}
+
+.demo-banner i {
+    margin-top: 2px;
+    color: #c9a227;
+}
+
+.demo-banner strong {
+    color: #6b4d0d;
+}
+
+.checkout-item {
+    align-items: center;
+}
+
+.checkout-item .qty-stepper {
+    height: 38px;
+    padding: 0 5px;
+    box-shadow: 0 4px 14px rgba(43, 26, 51, .09);
+}
+
+.checkout-item .qty-stepper__btn {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+}
+
+.checkout-item .qty-stepper__num {
+    min-width: 22px;
+    font-size: 13px;
+}
+
+.checkout-item__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.order-success-items {
+    width: 100%;
+    max-width: 420px;
+    margin: 22px auto 0;
+    text-align: left;
+    border-top: 1px solid #eee5dd;
+    padding-top: 6px;
+}
+
+.order-success-items .checkout-item {
+    padding: 10px 0;
+}
+
+.order-success-total {
+    display: flex;
+    justify-content: space-between;
+    max-width: 420px;
+    width: 100%;
+    margin: 6px auto 0;
+    padding-top: 12px;
+    border-top: 1px solid #eee5dd;
+    font-size: 14px;
+}
+
+.order-success-total strong {
+    color: var(--orange);
+}
+
+.order-success-note {
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 650px) {
+    .floating-cart-btn {
+        right: 14px;
+        bottom: 14px;
+        padding: 12px 16px 12px 15px;
+    }
+
+    .cart-item {
+        align-items: flex-start;
+    }
+}

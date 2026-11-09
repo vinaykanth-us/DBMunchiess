@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="order.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="stylesheet" href="premium.css?v=8">
 </head>
@@ -65,6 +66,11 @@
             <h1>Complete Your <span>Order</span></h1>
 
             <p>Just a few details before we prepare your food.</p>
+        </div>
+
+        <div class="demo-banner" role="note">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            <span><strong>Demo checkout.</strong> This is a practice order on the demo site — no payment is taken, no card details are asked for, and no real order is placed.</span>
         </div>
 
 
@@ -203,16 +209,28 @@
                 <i class="fa-solid fa-check"></i>
             </div>
 
-            <span class="eyebrow">ORDER RECEIVED</span>
+            <span class="eyebrow">DEMO ORDER RECEIVED</span>
 
             <h2>Thank You For Your Order!</h2>
 
             <p>Your demo order has been created successfully.</p>
 
             <div class="generated-order">
-                <span>Your Order Number</span>
+                <span>Your Demo Order Number</span>
                 <strong id="generatedOrderId">#3001</strong>
             </div>
+
+            <div class="order-success-items" id="orderSuccessItems"></div>
+
+            <div class="order-success-total">
+                <span>Order total</span>
+                <strong id="orderSuccessTotal">$0.00</strong>
+            </div>
+
+            <p class="order-success-note">
+                Demo order — pickup at 123 Maple Ave, Hartford, CT 06114.
+                No payment was taken and no real order was placed.
+            </p>
 
             <a href="track-order.html" class="primary-btn">
                 Track Your Order
@@ -256,7 +274,8 @@
 
 </div>
 
-<script src="checkout.js"></script>
+<script src="cart.js?v=1"></script>
+<script src="checkout.js?v=2"></script>
 
 <script src="assets/retell-call.js?v=2"></script>
 <script src="premium.js" defer></script>
