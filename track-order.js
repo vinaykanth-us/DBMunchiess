@@ -1,6 +1,6 @@
 
 /* ==========================================
-   DB MART MUNCHIES - ORDER TRACKING
+   MUNCHIES ON MAPLE - ORDER TRACKING
 ========================================== */
 
 // Client-provided sample orders
@@ -285,4 +285,4 @@ if (menuToggle && navLinks) {
    INITIALIZE
 ========================================== */
 
-console.log("DB Mart Munchies tracking initialized.");
+console.log("Munchies on Maple tracking initialized.");

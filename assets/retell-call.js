@@ -1,5 +1,5 @@
 /* ==========================================
-   DB MART MUNCHIES - AI VOICE ASSISTANT (Retell)
+   MUNCHIES ON MAPLE - AI VOICE ASSISTANT (Retell)
    One file for every page. Every "Call AI Assistant" button calls callRestaurant().
 
    SETUP: paste your Retell PUBLIC key below (Retell dashboard -> API Keys -> Public Keys).

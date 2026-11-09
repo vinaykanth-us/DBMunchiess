@@ -1,6 +1,6 @@
 
 /* ==========================================
-   DB MART MUNCHIES - MENU DATA
+   MUNCHIES ON MAPLE - MENU DATA
 ========================================== */
 
 const menuItems = [
@@ -471,7 +471,7 @@ renderCategories();
 renderMenu();
 updateCart();
 
-console.log("DB Mart Munchies menu loaded:", menuItems.length);
+console.log("Munchies on Maple menu loaded:", menuItems.length);
 
 /* MENU PAGE SCROLL REVEAL */
 

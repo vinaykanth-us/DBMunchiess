@@ -78,7 +78,7 @@
 
 // }
 
-// console.log("DB Mart Munchies homepage loaded.");
+// console.log("Munchies on Maple homepage loaded.");
 
 
 // const reviews = document.querySelectorAll(".review");
@@ -136,7 +136,7 @@
 
 
 /* ==========================================
-   DB MART MUNCHIES - HOME PAGE
+   MUNCHIES ON MAPLE - HOME PAGE
 ========================================== */
 
 // 1. SCROLL REVEAL ANIMATIONS
@@ -211,4 +211,4 @@ if (reviewBanner) {
     reviewObserver.observe(reviewBanner);
 }
 
-console.log("DB Mart Munchies homepage loaded successfully.");
+console.log("Munchies on Maple homepage loaded successfully.");

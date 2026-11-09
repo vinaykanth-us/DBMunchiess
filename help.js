@@ -1,6 +1,6 @@
 
 /* ==========================================
-   DB MART MUNCHIES - CUSTOMER SUPPORT
+   MUNCHIES ON MAPLE - CUSTOMER SUPPORT
 ========================================== */
 
 const supportForm = document.getElementById("supportForm");
@@ -214,4 +214,4 @@ if (menuToggle && navLinks) {
    INITIALIZE
 ========================================== */
 
-console.log("DB Mart Munchies support page initialized.");
+console.log("Munchies on Maple support page initialized.");

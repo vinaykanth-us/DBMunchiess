@@ -1,6 +1,6 @@
 
 /* ==========================================
-   DB MART MUNCHIES - CALL PAGE
+   MUNCHIES ON MAPLE - CALL PAGE
 ========================================== */
 
 // Mobile navigation
@@ -30,11 +30,11 @@ document.querySelectorAll('a[href="tel:+18609560415"]').forEach(link => {
 
     link.addEventListener("click", () => {
 
-        console.log("Opening phone dialer for DB Mart Munchies.");
+        console.log("Opening phone dialer for Munchies on Maple.");
 
     });
 
 });
 
 
-console.log("DB Mart Munchies call page initialized.");
+console.log("Munchies on Maple call page initialized.");

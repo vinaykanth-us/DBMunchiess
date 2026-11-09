@@ -1,5 +1,5 @@
 /* ============================================================
-   DB MART MUNCHIES — PREMIUM REDESIGN HELPERS (local only)
+   MUNCHIES ON MAPLE — PREMIUM REDESIGN HELPERS (local only)
    1. Broken local photos: assets/images/ does not exist in the
       repo, so a missing hero/offer photo is swapped for a generic
       Unsplash food placeholder — the same placeholder pattern

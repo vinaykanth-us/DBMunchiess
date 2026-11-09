@@ -1,6 +1,6 @@
 
 /* ==========================================
-   DB MART MUNCHIES - CHECKOUT
+   MUNCHIES ON MAPLE - CHECKOUT
 ========================================== */
 
 const orderForm = document.getElementById("orderForm");
