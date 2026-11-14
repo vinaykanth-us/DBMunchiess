@@ -107,6 +107,36 @@ function generateOrderNumber() {
 }
 
 
+/* CHOOSE YOUR BUILDING — single-select cards + Skip */
+const buildingPicker = document.getElementById("buildingPicker");
+const buildingSkip = document.getElementById("buildingSkip");
+
+function getBuildingType() {
+    if (!buildingPicker) return "";
+    const checked = buildingPicker.querySelector('input[name="buildingType"]:checked');
+    return checked ? checked.value : "";
+}
+
+if (buildingPicker) {
+    buildingPicker.addEventListener("click", event => {
+        const option = event.target.closest(".building-option");
+        if (!option) return;
+        buildingPicker.querySelectorAll(".building-option").forEach(o => o.classList.remove("selected"));
+        option.classList.add("selected");
+        const radio = option.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+    });
+}
+
+if (buildingSkip) {
+    buildingSkip.addEventListener("click", () => {
+        if (!buildingPicker) return;
+        buildingPicker.querySelectorAll(".building-option").forEach(o => o.classList.remove("selected"));
+        buildingPicker.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    });
+}
+
+
 /* CONFIRM ORDER */
 
 orderForm.addEventListener("submit", event => {
@@ -124,6 +154,7 @@ orderForm.addEventListener("submit", event => {
         name: document.getElementById("customerName").value.trim(),
         phone: document.getElementById("customerPhone").value.trim(),
         address: document.getElementById("customerAddress").value.trim(),
+        buildingType: getBuildingType(),
         notes: document.getElementById("orderNotes").value.trim()
     };
 
@@ -134,6 +165,7 @@ orderForm.addEventListener("submit", event => {
         customer: customer.name,
         phone: customer.phone,
         address: customer.address,
+        building_type: customer.buildingType,
         notes: customer.notes,
 
         items: cart,

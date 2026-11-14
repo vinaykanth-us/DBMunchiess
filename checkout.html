@@ -132,6 +132,66 @@
                     </div>
 
 
+                    <div class="form-group building-group">
+                        <label>Choose your building <span class="optional-tag">(Optional)</span></label>
+                        <p class="building-sub">Let us know your building type for more accurate deliveries.</p>
+
+                        <div class="building-picker" id="buildingPicker">
+                            <label class="building-option">
+                                <input type="radio" name="buildingType" value="House">
+                                <span class="building-icon"><i class="fa-solid fa-house"></i></span>
+                                <span class="building-text">
+                                    <strong>House</strong>
+                                    <span>Single or multi-family home</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right building-chevron"></i>
+                            </label>
+
+                            <label class="building-option">
+                                <input type="radio" name="buildingType" value="Flat">
+                                <span class="building-icon"><i class="fa-solid fa-building"></i></span>
+                                <span class="building-text">
+                                    <strong>Flat</strong>
+                                    <span>Multi-unit residential building</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right building-chevron"></i>
+                            </label>
+
+                            <label class="building-option">
+                                <input type="radio" name="buildingType" value="Office">
+                                <span class="building-icon"><i class="fa-solid fa-briefcase"></i></span>
+                                <span class="building-text">
+                                    <strong>Office</strong>
+                                    <span>Workplace with entry restrictions</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right building-chevron"></i>
+                            </label>
+
+                            <label class="building-option">
+                                <input type="radio" name="buildingType" value="Hotel">
+                                <span class="building-icon"><i class="fa-solid fa-bed"></i></span>
+                                <span class="building-text">
+                                    <strong>Hotel</strong>
+                                    <span>Lodging, motel or resort</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right building-chevron"></i>
+                            </label>
+
+                            <label class="building-option">
+                                <input type="radio" name="buildingType" value="Other">
+                                <span class="building-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="building-text">
+                                    <strong>Other</strong>
+                                    <span>Hospital, park, outdoors, etc</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right building-chevron"></i>
+                            </label>
+                        </div>
+
+                        <button type="button" class="building-skip" id="buildingSkip">Skip</button>
+                    </div>
+
+
                     <div class="form-group">
                         <label for="orderNotes">
                             Special Instructions (Optional)
